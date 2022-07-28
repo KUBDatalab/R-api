@@ -159,7 +159,7 @@ result
 
 ~~~
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2022-07-26 13:37
+  Date: 2022-07-28 06:32
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 884 B
@@ -439,7 +439,7 @@ function (..., list = character(), package = NULL, lib.loc = NULL,
     }
     invisible(names)
 }
-<bytecode: 0x5600899220a8>
+<bytecode: 0x56369c1bffd8>
 <environment: namespace:utils>
 ~~~
 {: .output}
@@ -682,7 +682,7 @@ function (..., list = character(), package = NULL, lib.loc = NULL,
     }
     invisible(names)
 }
-<bytecode: 0x5600899220a8>
+<bytecode: 0x56369c1bffd8>
 <environment: namespace:utils>
 ~~~
 {: .output}
@@ -965,7 +965,7 @@ function (..., list = character(), package = NULL, lib.loc = NULL,
     }
     invisible(names)
 }
-<bytecode: 0x5600899220a8>
+<bytecode: 0x56369c1bffd8>
 <environment: namespace:utils>
 ~~~
 {: .output}
@@ -1247,7 +1247,7 @@ function (..., list = character(), package = NULL, lib.loc = NULL,
     }
     invisible(names)
 }
-<bytecode: 0x5600899220a8>
+<bytecode: 0x56369c1bffd8>
 <environment: namespace:utils>
 ~~~
 {: .output}
