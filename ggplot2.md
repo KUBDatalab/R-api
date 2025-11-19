@@ -59,7 +59,7 @@ SD_data <- read_csv2("data/SD_data.csv")
 ```
 
 ``` output
-Rows: 28560 Columns: 4
+Rows: 30240 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ";"
 chr (3): OMRÅDE, CIVILSTAND, TID
@@ -74,7 +74,7 @@ the "TID" column to something that can be understood as time by R:
 
 
 ``` r
-SD_data <- SD_data %>% mutate(TID = yearquarter(TID))
+SD_data <- SD_data |> mutate(TID = yearquarter(TID))
 ```
 
 
@@ -109,17 +109,17 @@ Each chart built with ggplot2 must include the following
 Thus, the template for graphic in ggplot2 is:
 
 ```
-<DATA> %>%
+<DATA> |> 
     ggplot(aes(<MAPPINGS>)) +
     <GEOM_FUNCTION>()
 ```
-Remember from the last lesson that the pipe operator `%>%` places the result of the previous line(s) into the first argument of the function. **`ggplot`** is a function that expects a data frame to be the first argument. This allows for us to change from specifying the `data =` argument within the `ggplot` function and instead pipe the data into the function.
+Remember from the last lesson that the pipe operator ` |> ` places the result of the previous line(s) into the first argument of the function. **`ggplot`** is a function that expects a data frame to be the first argument. This allows for us to change from specifying the `data =` argument within the `ggplot` function and instead pipe the data into the function.
 
 - use the `ggplot()` function and bind the plot to a specific data frame.
 
 
 ``` r
-SD_data %>%
+SD_data |> 
     ggplot()
 ```
 
@@ -127,7 +127,7 @@ SD_data %>%
 
 
 ``` r
-SD_data %>%
+SD_data |> 
     ggplot(aes(x = TID, y = INDHOLD))
 ```
 
@@ -143,7 +143,7 @@ To add a geom to the plot use the `+` operator. Because we have two continuous v
 
 
 ``` r
-SD_data %>%
+SD_data |> 
     ggplot(aes(x = TID, y = INDHOLD)) +
     geom_point()
 ```
@@ -158,7 +158,7 @@ Let us pull out all the regions.
 
 
 ``` r
-plot_data <- SD_data %>% 
+plot_data <- SD_data |> 
   filter(str_detect(OMRÅDE, "Region"))
 ```
 
@@ -183,7 +183,7 @@ instead:
 
 ``` r
 # Assign plot to a variable
-data_plot <- plot_data %>%
+data_plot <- plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD))
 
 # Draw the plot as a dot plot
@@ -220,7 +220,7 @@ defining the dataset we'll use, lay out the axes, and choose a geom:
 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD)) +
     geom_point()
 ```
@@ -234,7 +234,7 @@ We place the color argument within the aes() function, because we want to
 map the values in "CIVILSTAND" to the 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD, color = CIVILSTAND)) +
     geom_point()
 ```
@@ -271,7 +271,7 @@ multi-panel plot:
 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD, color = CIVILSTAND)) +
     geom_point() +
     facet_wrap(~OMRÅDE)
@@ -293,7 +293,7 @@ We can use boxplots to visualize the distribution of observations for each
 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND, y = INDHOLD)) +
     geom_boxplot()
 ```
@@ -308,7 +308,7 @@ measurements and of their distribution:
 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND, y = INDHOLD)) +
     geom_boxplot() +
     geom_jitter(alpha = 0.5,
@@ -337,7 +337,7 @@ value of x (in this case, wall type) appears in the dataset.
 
 
 ``` r
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND)) +
     geom_bar()
 ```
@@ -353,7 +353,7 @@ does not calculate them!
 
 
 ``` r
-plot_data %>% ggplot(aes(CIVILSTAND, INDHOLD)) +
+plot_data |> ggplot(aes(CIVILSTAND, INDHOLD)) +
   geom_bar(stat="identity")
 ```
 
@@ -372,9 +372,9 @@ same datatype as is contained in the columns, using the yearquarter() function.
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD)) +
   geom_bar(stat= "identity")
 ```
@@ -387,9 +387,9 @@ We can color bars by region:
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, color=OMRÅDE)) +
   geom_bar(stat= "identity")
 ```
@@ -402,9 +402,9 @@ the portion of each count that is from each OMRÅDE.
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity")
 ```
@@ -420,9 +420,9 @@ argument for `geom_bar()` and setting it to "dodge".
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge")
 ```
@@ -451,9 +451,9 @@ The `labs` function takes the following arguments:
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge") +
   labs(title = "Civilstand by region",
@@ -472,9 +472,9 @@ the grid:
 
 
 ``` r
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge") +
   labs(title = "Civilstand by region",

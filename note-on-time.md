@@ -42,7 +42,7 @@ If the data is not still in memory, we can read it in:
 ```
 
 ``` output
-Rows: 28560 Columns: 4
+Rows: 30240 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ";"
 chr (3): OMRÅDE, CIVILSTAND, TID
@@ -231,7 +231,7 @@ our purposes.
 Let us finish by converting the "TID" column in our data, to a time-format.
 
 ``` r
-data <- data %>% 
+data <- data |> 
   mutate(TID = yearquarter(TID))
 ```
 
