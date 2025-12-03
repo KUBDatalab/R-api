@@ -399,12 +399,18 @@ The same trick can be done for the other fields in the table:
 metadata |> 
   slice(1) |> 
   pull(values) |> 
-  .[[1]] |> 
+  pluck(1) |> 
   head()
 ```
 
-``` error
-Error in .[[1]]: function '[[' not supported in RHS call of a pipe (<input>:4:3)
+``` output
+   id               text
+1 000        All Denmark
+2 084 Region Hovedstaden
+3 101         Copenhagen
+4 147      Frederiksberg
+5 155             Dragør
+6 185             Tårnby
 ```
 Here we see the individual municipalities in Denmark. 
 
