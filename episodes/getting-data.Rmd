@@ -33,8 +33,8 @@ The site icanhazdadjoke.com offers a wide selection of dad-jokes.
 :::: callout
 
 ## Dad jokes
- a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny
- https://www.merriam-webster.com/dictionary/dad%20joke
+ a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny. According to [Merriam Webster](https://www.merriam-webster.com/dictionary/dad%20joke){target="_blank"}
+ 
 
 ::::
 
@@ -47,7 +47,7 @@ The library *httr* have an implementation:
 library(httr)
 ```
 
-Taking a quick look at the [documentation](https://icanhazdadjoke.com/api) we first try GET directly:
+Taking a quick look at the [documentation](https://icanhazdadjoke.com/api){target="_blank"} we first try GET directly:
 ```{r first-call}
 GET("https://icanhazdadjoke.com/")
 ```
