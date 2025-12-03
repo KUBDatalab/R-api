@@ -186,7 +186,7 @@ The `content()` function can treat the content of our response in different ways
 If we treat it as text, the function fromJSON from the library `jsonlite`, can 
 convert it to a data frame. We begin by loading the library:
 
-```{r extract-from-json}
+```{r extract-from-json, message = FALSE}
 library(jsonlite)
 GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) |> 
   content(as="text") |> 
