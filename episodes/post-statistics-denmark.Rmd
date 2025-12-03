@@ -164,16 +164,16 @@ our_body <- list(lang = "en", recursive = F,
 
 :::: callout
 ## I()
-I() isolates - or insulates - the contents of I() from the gaze of R's parsing code.
+`I()` isolates - or insulates - the contents of `I()` from the gaze of R's parsing code.
 Basically it prevents R from doing stuff to the content that we dont want it to.
-In this specific case, the POST() function would convert the vector 1, with length
+In this specific case, the `POST()` function would convert the vector 1, with length
 1, to a scalar, the more basic data type in R, that hold only one, single, atomic
 value at a time.
 ::::
 
 
 
-Note that it is important that we tell the POST function that the body is the body:
+Note that it is important that we tell the `POST()` function that the body is the body:
 
 ```{r hent-data-til-json}
 data <- POST(endpoint, body=our_body, encode = "json") |> 
