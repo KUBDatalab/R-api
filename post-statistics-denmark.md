@@ -33,7 +33,7 @@ data from Statistics Denmark.
 But before we can do that, we need to know how the SD-API expects to receive 
 data.
 
-Hopefully we can get that by reading the [documentation, that can be found here.]https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api
+Hopefully we can get that by reading the [documentation, that can be found here.](https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api){target="_blank"}
 
 But that is rather confusing.
 
@@ -141,7 +141,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
@@ -204,16 +204,16 @@ our_body <- list(lang = "en", recursive = F,
 
 :::: callout
 ## I()
-I() isolates - or insulates - the contents of I() from the gaze of R's parsing code.
+`I()` isolates - or insulates - the contents of `I()` from the gaze of R's parsing code.
 Basically it prevents R from doing stuff to the content that we dont want it to.
-In this specific case, the POST() function would convert the vector 1, with length
+In this specific case, the `POST()` function would convert the vector 1, with length
 1, to a scalar, the more basic data type in R, that hold only one, single, atomic
 value at a time.
 ::::
 
 
 
-Note that it is important that we tell the POST function that the body is the body:
+Note that it is important that we tell the `POST()` function that the body is the body:
 
 
 ``` r

@@ -30,15 +30,15 @@ Less ambitiously we would have a solid selection.
 
 For now we have three.
 
-The [gargle package](https://cran.r-project.org/web/packages/gargle/index.html),
+The [gargle package](https://cran.r-project.org/web/packages/gargle/index.html){target="_blank"},
 provides tools for working with the Google APIs.
 
 
-[The Guardian](https://open-platform.theguardian.com/) have an open API providing
+[The Guardian](https://open-platform.theguardian.com/){target="_blank"} have an open API providing
 access to >2 million articles from that newspaper. You will need to register for
 an API key, but it is free.
 
-[Wikidata](https://www.wikidata.org/wiki/Wikidata:REST_API) handles factual data
+[Wikidata](https://www.wikidata.org/wiki/Wikidata:REST_API){target="_blank"} handles factual data
 for the Wikipedia infrastructure. 
 
 

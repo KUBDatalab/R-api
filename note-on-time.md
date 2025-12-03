@@ -26,7 +26,7 @@ exercises: 2
 “People assume that time is a strict progression from cause to effect, but actually from a non-linear, non-subjective viewpoint, it's more like a big ball of wibbly-wobbly, timey-wimey stuff.”
 
 Time is not easy to deal with. It is actually really complicated. [Here is a rant 
-on how complicated it is...](https://www.youtube.com/watch?v=-5wpm-gesOY)
+on how complicated it is...](https://www.youtube.com/watch?v=-5wpm-gesOY){target="_blank"}
 
 
 ## Why?
@@ -74,7 +74,7 @@ head(data)
 6 All Denmark Never married 2009Q2 2584993
 ```
 
-Note that the datatype for "TID" is *chr*, meaning character. Those are 
+Note that the datatype for "TID" is `chr`, meaning character. Those are 
 simply text, not a time. And if we want to plot this, as a function of time,
 the "TID" variable needs to be converted into something R can understand as time.
 
@@ -100,13 +100,13 @@ date-time format.
 
 The most important functions we need to know, are:
 
-* ymd
-* hms
-* ymd_hms
+* `ymd()`
+* `hms()`
+* `ymd_hms()`
 
-And variations of these, especially ymd.
+And variations of these, especially `ymd()`.
 
-ymd("2021-09-21") converts the date 2020-09-21 to a date-format that R can 
+`ymd("2021-09-21")` converts the date 2020-09-21 to a date-format that R can 
 understand:
 
 
@@ -122,7 +122,7 @@ ymd("2021-09-21")
 Sometimes we have dates formatted as "21-09-2021". That is day, month and year
 in that order.
 
-That can be converted to at standard date-format with the function dmy():
+That can be converted to at standard date-format with the function `dmy()`:
 
 ``` r
 dmy("21-09-2021")
@@ -132,7 +132,7 @@ dmy("21-09-2021")
 [1] "2021-09-21"
 ```
 We might even have dates formatted as "2021 21 4", (year, day month), the
-function ydm() can handle that.
+function `ydm()` can handle that.
 
 ``` r
 ydm("2021 21 4")
@@ -225,7 +225,7 @@ yearquarter(quarters)
 ```
 
 We are not going to go into further details on the challenges of working with
-time-series. The generic lubridate functions and yearquarter() will be enough for
+time-series. The generic lubridate functions and `yearquarter()` will be enough for
 our purposes.
 
 Let us finish by converting the "TID" column in our data, to a time-format.
@@ -235,7 +235,7 @@ data <- data |>
   mutate(TID = yearquarter(TID))
 ```
 
-We mutate the column "TID" into the result of running yearquarter() on the
+We mutate the column "TID" into the result of running `yearquarter()` on the
 column "TID". And now we have a data frame that we can do interesting things 
 with.
 
@@ -245,15 +245,15 @@ Now might be a good time to save the data in its new version:
 write_csv2(data, "data/SD_data.csv")
 ```
 
-Note that we are using write_csv2() here. We do not have decimalpoints in this
+Note that we are using `write_csv2()` here. We do not have decimalpoints in this
 data, but other data might have.
 
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Working with time and dates can be complicated. Lubridate makes it easier
-- Special date-time formats can be handled using the library zoo
+- Working with time and dates can be complicated. `lubridate` makes it easier
+- Special date-time formats can be handled using the library `zoo`
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

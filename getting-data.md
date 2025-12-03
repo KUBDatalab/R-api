@@ -30,8 +30,8 @@ The site icanhazdadjoke.com offers a wide selection of dad-jokes.
 :::: callout
 
 ## Dad jokes
- a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny
- https://www.merriam-webster.com/dictionary/dad%20joke
+ a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny. According to [Merriam Webster](https://www.merriam-webster.com/dictionary/dad%20joke){target="_blank"}
+ 
 
 ::::
 
@@ -45,7 +45,7 @@ The library *httr* have an implementation:
 library(httr)
 ```
 
-Taking a quick look at the [documentation](https://icanhazdadjoke.com/api) we first try GET directly:
+Taking a quick look at the [documentation](https://icanhazdadjoke.com/api){target="_blank"} we first try GET directly:
 
 ``` r
 GET("https://icanhazdadjoke.com/")
@@ -53,10 +53,10 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.6 kB
+  Size: 11.8 kB
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,7 +84,7 @@ bit more. Again taking a look at the documentation, it appears that we
 need to tell the API, that we would like a specific type of response, rather
 than the default html, more specifically "text/plain". 
 
-*httr* has helper functions to assist us. The one we need here is *accept()*
+`httr` has helper functions to assist us. The one we need here is `accept()`
 We now use that to tell the server, that we really want a response in just
 text:
 
@@ -95,16 +95,16 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: text/plain
-  Size: 51 B
+  Size: 68 B
 ```
 We still get the response from the server, telling us that Status is 200, and
 everything is OK. But where is our dad-joke?
 
 It is hidden in the content of the response. It is sent to us as binary code,
-so we are using the *content()* function, also from *httr* to extract it:
+so we are using the `content()` function, also from `httr` to extract it:
 
 
 ``` r
@@ -116,7 +116,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "What is this movie about? It is about 2 hours long."
+[1] "Why couldn't the lifeguard save the hippie? He was too far out, man."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -158,8 +158,8 @@ tricky to convert to dataframes if there are a lot of nested fields.
 
 Looking at the documentation, we see an example, which indicates that what 
 we should tell the server that we accept, should be "application/json".
-The *httr* library contains helper functions to assist us in manipulating the 
-header. We use *accept()* that sets the *accept* part of the header:
+The `httr` library contains helper functions to assist us in manipulating the 
+header. We use `accept()` that sets the `accept` part of the header:
 
 ``` r
 result <- GET("https://icanhazdadjoke.com/", accept("application/json")) 
@@ -168,18 +168,18 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: application/json
   Size: 104 B
-{"id":"1Dt4M7Ufaxc","joke":"Slept like a log last night \u2026 woke up in the...
+{"id":"7Uvc29hFIBd","joke":"Why are mummys scared of vacation? They're afraid...
 ```
 
 Again - everything is nice and 200 = OK.
 
 We also see a truncated version of the actual joke.
 
-Let us use the content() function to extract the content:
+Let us use the `content()` function to extract the content:
 
 
 ``` r
@@ -188,10 +188,10 @@ content(result)
 
 ``` output
 $id
-[1] "1Dt4M7Ufaxc"
+[1] "7Uvc29hFIBd"
 
 $joke
-[1] "Slept like a log last night … woke up in the fireplace."
+[1] "Why are mummys scared of vacation? They're afraid to unwind."
 
 $status
 [1] 200
@@ -236,7 +236,7 @@ And in the examples we get the hint, that we should format the URL as:
 https://icanhazdadjoke.com/search?term=<TERM>
 
 Dogs are always fun, let us search for dad jokes about dogs. Specify the
-type of result we want, pipe the response to the content() function and save 
+type of result we want, pipe the response to the `content()` function and save 
 it to *result*:
 
 
@@ -263,98 +263,98 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[1]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[2]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[3]]
 $results[[3]]$id
-[1] "lyk3EIBQfxc"
+[1] "71wsPKeF6h"
 
 $results[[3]]$joke
-[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
+[1] "What did the dog say to the two trees? Bark bark."
 
 
 $results[[4]]
 $results[[4]]$id
-[1] "DIeaUDlbUDd"
+[1] "R7UfaahVfFd"
 
 $results[[4]]$joke
-[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
+[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
 
 
 $results[[5]]
 $results[[5]]$id
-[1] "EBQfiyXD5ob"
+[1] "obhFBljb2g"
 
 $results[[5]]$joke
-[1] "what do you call a dog that can do magic tricks? a labracadabrador"
+[1] "I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door."
 
 
 $results[[6]]
 $results[[6]]$id
-[1] "89MZLmWnWvc"
+[1] "lyk3EIBQfxc"
 
 $results[[6]]$joke
-[1] "I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog."
+[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
 
 
 $results[[7]]
 $results[[7]]$id
-[1] "GtH6E6UD5Ed"
+[1] "DIeaUDlbUDd"
 
 $results[[7]]$joke
-[1] "What kind of dog lives in a particle accelerator? A Fermilabrador Retriever."
+[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
 
 
 $results[[8]]
 $results[[8]]$id
-[1] "obhFBljb2g"
+[1] "EBQfiyXD5ob"
 
 $results[[8]]$joke
-[1] "I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door."
+[1] "what do you call a dog that can do magic tricks? a labracadabrador"
 
 
 $results[[9]]
 $results[[9]]$id
-[1] "R7UfaahVfFd"
+[1] "GtH6E6UD5Ed"
 
 $results[[9]]$joke
-[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+[1] "What kind of dog lives in a particle accelerator? A Fermilabrador Retriever."
 
 
 $results[[10]]
 $results[[10]]$id
-[1] "71wsPKeF6h"
+[1] "89MZLmWnWvc"
 
 $results[[10]]$joke
-[1] "What did the dog say to the two trees? Bark bark."
+[1] "I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog."
 
 
 $results[[11]]
 $results[[11]]$id
-[1] "sPRnOfiyAAd"
+[1] "AQn3wPKeqrc"
 
 $results[[11]]$joke
-[1] "At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline."
+[1] "It was raining cats and dogs the other day. I almost stepped in a poodle."
 
 
 $results[[12]]
 $results[[12]]$id
-[1] "AQn3wPKeqrc"
+[1] "sPRnOfiyAAd"
 
 $results[[12]]$joke
-[1] "It was raining cats and dogs the other day. I almost stepped in a poodle."
+[1] "At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline."
 
 
 $results[[13]]
@@ -382,8 +382,8 @@ $total_pages
 This is in JSON format. It is clear that the jokes are in the $results part of that
 datastructure. How can we get that to a data frame?
 
-the content() function can treat the content of our response in different ways.
-If we treat it as text, the function fromJSON from the library *jsonlite*, can 
+The `content()` function can treat the content of our response in different ways.
+If we treat it as text, the function fromJSON from the library `jsonlite`, can 
 convert it to a data frame. We begin by loading the library:
 
 
@@ -429,28 +429,28 @@ $results
             id
 1  YvkV8xXnjyd
 2  82wHlbaapzd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6  GtH6E6UD5Ed
-7   obhFBljb2g
-8  89MZLmWnWvc
-9  R7UfaahVfFd
-10  71wsPKeF6h
+3   71wsPKeF6h
+4  R7UfaahVfFd
+5   obhFBljb2g
+6  lyk3EIBQfxc
+7  DIeaUDlbUDd
+8  EBQfiyXD5ob
+9  GtH6E6UD5Ed
+10 89MZLmWnWvc
 11 AQn3wPKeqrc
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
 1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
 2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-7                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
+3                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+4                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+7                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+8                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+9                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+10                                                                                                                                               I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
 11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -515,32 +515,32 @@ $previous_page
 
 $results
             id
-1  82wHlbaapzd
-2  YvkV8xXnjyd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6  89MZLmWnWvc
-7  GtH6E6UD5Ed
-8   obhFBljb2g
-9  R7UfaahVfFd
-10  71wsPKeF6h
-11 sPRnOfiyAAd
-12 AQn3wPKeqrc
+1  YvkV8xXnjyd
+2  82wHlbaapzd
+3   71wsPKeF6h
+4  R7UfaahVfFd
+5   obhFBljb2g
+6  lyk3EIBQfxc
+7  DIeaUDlbUDd
+8  EBQfiyXD5ob
+9  GtH6E6UD5Ed
+10 89MZLmWnWvc
+11 AQn3wPKeqrc
+12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
-1  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-2                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-7                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-8                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
-11                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
-12                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
+1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
+3                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+4                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+7                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+8                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+9                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+10                                                                                                                                               I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
+12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
 
 $search_term
@@ -565,7 +565,7 @@ $total_pages
 
 - 200 is the internet code for everything is OK
 - GET requests can be adjusted to specify desired result
-- Dad jokes are not really that good.
+- Dad jokes are not really that funny.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
