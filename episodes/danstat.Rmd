@@ -201,7 +201,7 @@ The same trick can be done for the other fields in the table:
 metadata |> 
   slice(1) |> 
   pull(values) |> 
-  .[[1]] |> 
+  pluck(1) |> 
   head()
 ```
 Here we see the individual municipalities in Denmark. 
