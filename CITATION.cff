@@ -15,6 +15,9 @@ authors:
     email: cbk@kb.dk
     affiliation: Copenhagen University Library
     orcid: 'https://orcid.org/0000-0002-9816-768X'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17803256
 repository-code: 'https://github.com/KUBDatalab/R-api'
 url: 'https://kubdatalab.github.io/R-api/'
 abstract: >-
