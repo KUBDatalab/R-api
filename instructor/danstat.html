@@ -47,6 +47,7 @@
           </ul></li>
       </div>
 
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -319,7 +320,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>What about danstat?</h1>
-        <p>Last updated on 2025-12-02 |
+        <p>Last updated on 2025-12-03 |
 
         <a href="https://github.com/KUBDatalab/R-api_new/edit/main/episodes/danstat.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -392,9 +393,10 @@ case, try this:</p>
 And then we can access the functions included in the library:</p>
 <p>The danstat package contain four functions, equivalent to the four
 endpoints we discussed earlier.</p>
-<p>The get_subjects() function sends a request to the Statistics Denmark
-API, asking for a list of the subjects. The information is returned to
-our script, and the get_subjects() function presents us with a dataframe
+<p>The <code>get_subjects()</code> function sends a request to the
+Statistics Denmark API, asking for a list of the subjects. The
+information is returned to our script, and the
+<code>get_subjects()</code> function presents us with a dataframe
 containing the information.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -422,8 +424,8 @@ containing the information.</p>
 <p>We get the 10 major subjects from Statistics Denmark we have seen
 before. As before, each of them have sub-subjects.</p>
 <p>If we want to take a closer look at the subdivisions of a given
-subject, we use the get_subjects() function again, this time specifying
-which subject we are interested in:</p>
+subject, we use the <code>get_subjects()</code> function again, this
+time specifying which subject we are interested in:</p>
 <p>Let us try to get the sub-subjects from the subject 1 - containing
 information about populations and elections:</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -508,15 +510,15 @@ dataframes.</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lots_of_subjects</span> <span class="op">&lt;-</span> <span class="fu">get_subjects</span><span class="op">(</span><span class="fl">1</span>, recursive <span class="op">=</span> <span class="cn">T</span>, include_tables <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The “recursive = T” parameter means that get_subjects will retrieve
-the subjects of the subjects, and then the subjects of those
+<p>The <code>recursive = T</code> parameter means that get_subjects will
+retrieve the subjects of the subjects, and then the subjects of those
 subjects.</p>
 </section><section><h2 class="section-heading" id="which-datatables-exists">Which datatables exists?<a class="anchor" aria-label="anchor" href="#which-datatables-exists"></a></h2>
 <hr class="half-width"><p>But we ended up with a sub_sub_subject,</p>
 <p><em>20021 Population figures</em></p>
 <p>How do we find out which tables exists in this subject?</p>
-<p>The get_tables() function returns a dataframe with information about
-the tables available for a given subject.</p>
+<p>The <code>get_tables()</code> function returns a dataframe with
+information about the tables available for a given subject.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -678,7 +680,7 @@ available in the table. We do this with this function:</p>
 <p>There is a lot of other metadata in the tables, including the phone
 number to the staffmember at Statistics Denmark that is responsible for
 maintaining the table. We are only interested in the variables, which is
-why we add the parameter “variables_only = T”.</p>
+why we add the parameter <code>variables_only = T</code>.</p>
 <p>What kind of values can the individual datapoints take?</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -953,15 +955,17 @@ any links that you are not going to use.
 	
         | <a href="https://github.com/KUBDatalab/R-api_new/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/KUBDatalab/R-api_new/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/KUBDatalab/R-api_new/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:kubdatalab@kb.dk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
-			</div>
-			<div class="col-md-6">
+        <p>
+        <a href="https://github.com/KUBDatalab/R-api_new/blob/main/" class="external-link">Cite</a>
+        | <a href="mailto:kubdatalab@kb.dk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+		</div>
+		<div class="col-md-6">
 
         <p>Materials licensed under <a href="LICENSE.html">CC BY-NC-SA 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.17.1" class="external-link">sandpaper (0.17.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.7" class="external-link">varnish (1.0.7)</a></p>
-			</div>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.17.2" class="external-link">sandpaper (0.17.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.8" class="external-link">varnish (1.0.8)</a></p>
+		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
@@ -982,8 +986,8 @@ any links that you are not going to use.
   "url": "https://KUBDatalab.github.io/R-api_new/instructor/danstat.html",
   "identifier": "https://KUBDatalab.github.io/R-api_new/instructor/danstat.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02"
+  "dateModified": "2025-12-03",
+  "datePublished": "2025-12-03"
 }
 
   </script><script>

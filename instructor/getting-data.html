@@ -47,6 +47,7 @@
           </ul></li>
       </div>
 
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -316,7 +317,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>GETting data</h1>
-        <p>Last updated on 2025-12-02 |
+        <p>Last updated on 2025-12-03 |
 
         <a href="https://github.com/KUBDatalab/R-api_new/edit/main/episodes/getting-data.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -369,7 +370,7 @@ please excuse us for any red errors on the pages for the time being.</p>
 <div class="callout-content">
 <p>a wholesome joke of the type said to be told by fathers with a
 punchline that is often an obvious or predictable pun or play on words
-and usually judged to be endearingly corny or unfunny <a href="https://www.merriam-webster.com/dictionary/dad%20joke" class="external-link uri">https://www.merriam-webster.com/dictionary/dad%20joke</a></p>
+and usually judged to be endearingly corny or unfunny. According to <a href="https://www.merriam-webster.com/dictionary/dad%20joke" target="_blank" class="external-link">Merriam Webster</a></p>
 </div>
 </div>
 </div>
@@ -384,8 +385,7 @@ actually handles the behind-the-scenes-stuff for us. The library
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">httr</span><span class="op">)</span></span></code></pre>
 </div>
-<p>Taking a quick look at the <a href="https://icanhazdadjoke.com/api" class="external-link">documentation</a> we first try GET
-directly:</p>
+<p>Taking a quick look at the <a href="https://icanhazdadjoke.com/api" target="_blank" class="external-link">documentation</a> we first try GET directly:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -396,10 +396,10 @@ directly:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.6 kB
+  Size: 11.8 kB
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -424,9 +424,9 @@ add a bit more. Again taking a look at the documentation, it appears
 that we need to tell the API, that we would like a specific type of
 response, rather than the default html, more specifically
 “text/plain”.</p>
-<p><em>httr</em> has helper functions to assist us. The one we need here
-is <em>accept()</em> We now use that to tell the server, that we really
-want a response in just text:</p>
+<p><code>httr</code> has helper functions to assist us. The one we need
+here is <code>accept()</code> We now use that to tell the server, that
+we really want a response in just text:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -438,16 +438,16 @@ want a response in just text:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: text/plain
-  Size: 51 B</code></pre>
+  Size: 68 B</code></pre>
 </div>
 <p>We still get the response from the server, telling us that Status is
 200, and everything is OK. But where is our dad-joke?</p>
 <p>It is hidden in the content of the response. It is sent to us as
-binary code, so we are using the <em>content()</em> function, also from
-<em>httr</em> to extract it:</p>
+binary code, so we are using the <code>content()</code> function, also
+from <code>httr</code> to extract it:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -462,7 +462,7 @@ binary code, so we are using the <em>content()</em> function, also from
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] "What is this movie about? It is about 2 hours long."</code></pre>
+<pre class="output" tabindex="0"><code>[1] "Why couldn't the lifeguard save the hippie? He was too far out, man."</code></pre>
 </div>
 <p>There is a little warning about the encoding of the string. But now
 we have a dad-joke!</p>
@@ -494,9 +494,10 @@ tricky to convert to dataframes if there are a lot of nested fields.</p>
 </div>
 <p>Looking at the documentation, we see an example, which indicates that
 what we should tell the server that we accept, should be
-“application/json”. The <em>httr</em> library contains helper functions
-to assist us in manipulating the header. We use <em>accept()</em> that
-sets the <em>accept</em> part of the header:</p>
+“application/json”. The <code>httr</code> library contains helper
+functions to assist us in manipulating the header. We use
+<code>accept()</code> that sets the <code>accept</code> part of the
+header:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -508,15 +509,16 @@ sets the <em>accept</em> part of the header:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-02 10:35
+  Date: 2025-12-03 13:09
   Status: 200
   Content-Type: application/json
   Size: 104 B
-{"id":"1Dt4M7Ufaxc","joke":"Slept like a log last night \u2026 woke up in the...</code></pre>
+{"id":"7Uvc29hFIBd","joke":"Why are mummys scared of vacation? They're afraid...</code></pre>
 </div>
 <p>Again - everything is nice and 200 = OK.</p>
 <p>We also see a truncated version of the actual joke.</p>
-<p>Let us use the content() function to extract the content:</p>
+<p>Let us use the <code>content()</code> function to extract the
+content:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -527,10 +529,10 @@ sets the <em>accept</em> part of the header:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>$id
-[1] "1Dt4M7Ufaxc"
+[1] "7Uvc29hFIBd"
 
 $joke
-[1] "Slept like a log last night … woke up in the fireplace."
+[1] "Why are mummys scared of vacation? They're afraid to unwind."
 
 $status
 [1] 200</code></pre>
@@ -569,8 +571,8 @@ that we should send our GET request to the URL</p>
 as:</p>
 <p><a href="https://icanhazdadjoke.com/search?term=" class="external-link uri">https://icanhazdadjoke.com/search?term=</a><term></term></p>
 <p>Dogs are always fun, let us search for dad jokes about dogs. Specify
-the type of result we want, pipe the response to the content() function
-and save it to <em>result</em>:</p>
+the type of result we want, pipe the response to the
+<code>content()</code> function and save it to <em>result</em>:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -598,98 +600,98 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[1]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[2]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[3]]
 $results[[3]]$id
-[1] "lyk3EIBQfxc"
+[1] "71wsPKeF6h"
 
 $results[[3]]$joke
-[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
+[1] "What did the dog say to the two trees? Bark bark."
 
 
 $results[[4]]
 $results[[4]]$id
-[1] "DIeaUDlbUDd"
+[1] "R7UfaahVfFd"
 
 $results[[4]]$joke
-[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
+[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
 
 
 $results[[5]]
 $results[[5]]$id
-[1] "EBQfiyXD5ob"
+[1] "obhFBljb2g"
 
 $results[[5]]$joke
-[1] "what do you call a dog that can do magic tricks? a labracadabrador"
+[1] "I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door."
 
 
 $results[[6]]
 $results[[6]]$id
-[1] "89MZLmWnWvc"
+[1] "lyk3EIBQfxc"
 
 $results[[6]]$joke
-[1] "I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog."
+[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
 
 
 $results[[7]]
 $results[[7]]$id
-[1] "GtH6E6UD5Ed"
+[1] "DIeaUDlbUDd"
 
 $results[[7]]$joke
-[1] "What kind of dog lives in a particle accelerator? A Fermilabrador Retriever."
+[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
 
 
 $results[[8]]
 $results[[8]]$id
-[1] "obhFBljb2g"
+[1] "EBQfiyXD5ob"
 
 $results[[8]]$joke
-[1] "I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door."
+[1] "what do you call a dog that can do magic tricks? a labracadabrador"
 
 
 $results[[9]]
 $results[[9]]$id
-[1] "R7UfaahVfFd"
+[1] "GtH6E6UD5Ed"
 
 $results[[9]]$joke
-[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+[1] "What kind of dog lives in a particle accelerator? A Fermilabrador Retriever."
 
 
 $results[[10]]
 $results[[10]]$id
-[1] "71wsPKeF6h"
+[1] "89MZLmWnWvc"
 
 $results[[10]]$joke
-[1] "What did the dog say to the two trees? Bark bark."
+[1] "I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog."
 
 
 $results[[11]]
 $results[[11]]$id
-[1] "sPRnOfiyAAd"
+[1] "AQn3wPKeqrc"
 
 $results[[11]]$joke
-[1] "At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline."
+[1] "It was raining cats and dogs the other day. I almost stepped in a poodle."
 
 
 $results[[12]]
 $results[[12]]$id
-[1] "AQn3wPKeqrc"
+[1] "sPRnOfiyAAd"
 
 $results[[12]]$joke
-[1] "It was raining cats and dogs the other day. I almost stepped in a poodle."
+[1] "At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline."
 
 
 $results[[13]]
@@ -716,10 +718,10 @@ $total_pages
 <p>This is in JSON format. It is clear that the jokes are in the
 $results part of that datastructure. How can we get that to a data
 frame?</p>
-<p>the content() function can treat the content of our response in
-different ways. If we treat it as text, the function fromJSON from the
-library <em>jsonlite</em>, can convert it to a data frame. We begin by
-loading the library:</p>
+<p>The <code>content()</code> function can treat the content of our
+response in different ways. If we treat it as text, the function
+fromJSON from the library <code>jsonlite</code>, can convert it to a
+data frame. We begin by loading the library:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -771,28 +773,28 @@ $results
             id
 1  YvkV8xXnjyd
 2  82wHlbaapzd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6  GtH6E6UD5Ed
-7   obhFBljb2g
-8  89MZLmWnWvc
-9  R7UfaahVfFd
-10  71wsPKeF6h
+3   71wsPKeF6h
+4  R7UfaahVfFd
+5   obhFBljb2g
+6  lyk3EIBQfxc
+7  DIeaUDlbUDd
+8  EBQfiyXD5ob
+9  GtH6E6UD5Ed
+10 89MZLmWnWvc
 11 AQn3wPKeqrc
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
 1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
 2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-7                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
+3                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+4                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+7                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+8                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+9                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+10                                                                                                                                               I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
 11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -836,7 +838,7 @@ so funny data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -868,32 +870,32 @@ $previous_page
 
 $results
             id
-1  82wHlbaapzd
-2  YvkV8xXnjyd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6  89MZLmWnWvc
-7  GtH6E6UD5Ed
-8   obhFBljb2g
-9  R7UfaahVfFd
-10  71wsPKeF6h
-11 sPRnOfiyAAd
-12 AQn3wPKeqrc
+1  YvkV8xXnjyd
+2  82wHlbaapzd
+3   71wsPKeF6h
+4  R7UfaahVfFd
+5   obhFBljb2g
+6  lyk3EIBQfxc
+7  DIeaUDlbUDd
+8  EBQfiyXD5ob
+9  GtH6E6UD5Ed
+10 89MZLmWnWvc
+11 AQn3wPKeqrc
+12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
-1  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-2                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-7                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-8                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
-11                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
-12                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
+1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
+3                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+4                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+7                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+8                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+9                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+10                                                                                                                                               I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
+12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
 
 $search_term
@@ -921,7 +923,7 @@ $total_pages
 <div class="callout-content">
 <ul><li>200 is the internet code for everything is OK</li>
 <li>GET requests can be adjusted to specify desired result</li>
-<li>Dad jokes are not really that good.</li>
+<li>Dad jokes are not really that funny.</li>
 </ul></div>
 </div>
 </div>
@@ -958,15 +960,17 @@ any links that you are not going to use.
 	
         | <a href="https://github.com/KUBDatalab/R-api_new/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/KUBDatalab/R-api_new/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/KUBDatalab/R-api_new/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:kubdatalab@kb.dk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
-			</div>
-			<div class="col-md-6">
+        <p>
+        <a href="https://github.com/KUBDatalab/R-api_new/blob/main/" class="external-link">Cite</a>
+        | <a href="mailto:kubdatalab@kb.dk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+		</div>
+		<div class="col-md-6">
 
         <p>Materials licensed under <a href="LICENSE.html">CC BY-NC-SA 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.17.1" class="external-link">sandpaper (0.17.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.7" class="external-link">varnish (1.0.7)</a></p>
-			</div>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.17.2" class="external-link">sandpaper (0.17.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.8" class="external-link">varnish (1.0.8)</a></p>
+		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
@@ -987,8 +991,8 @@ any links that you are not going to use.
   "url": "https://KUBDatalab.github.io/R-api_new/instructor/getting-data.html",
   "identifier": "https://KUBDatalab.github.io/R-api_new/instructor/getting-data.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02"
+  "dateModified": "2025-12-03",
+  "datePublished": "2025-12-03"
 }
 
   </script><script>
