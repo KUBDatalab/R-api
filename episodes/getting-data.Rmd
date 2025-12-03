@@ -159,7 +159,7 @@ GET("https://icanhazdadjoke.com/j/lGJmrrzAsc",  accept("text/plain")) |>
   content()
 ```
 
-We can also search for words in jokes. The documentation tells us, that we 
+We can also search for words in jokes. The [documentation](https://icanhazdadjoke.com/api){target="_blank"} tells us, that we 
 should send our GET request to the URL 
 
 https://icanhazdadjoke.com/search
