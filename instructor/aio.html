@@ -2085,16 +2085,23 @@ values column.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>metadata <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="fu">pull</span>(values) <span class="sc">|&gt;</span> </span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>  .[[<span class="dv">1</span>]] <span class="sc">|&gt;</span> </span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">pull</span><span class="op">(</span><span class="va">values</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">pluck</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">head</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in .[[1]]: function '[[' not supported in RHS call of a pipe (&lt;input&gt;:4:3)</code></pre>
+<pre class="output" tabindex="0"><code>   id               text
+1 000        All Denmark
+2 084 Region Hovedstaden
+3 101         Copenhagen
+4 147      Frederiksberg
+5 155             Dragør
+6 185             Tårnby</code></pre>
 </div>
 <p>Here we see the individual municipalities in Denmark.</p>
 <p>Now we are almost ready to pull out the actual data!</p>
