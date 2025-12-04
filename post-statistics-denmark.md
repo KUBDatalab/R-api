@@ -30,7 +30,7 @@ POST instead. That allows us to do more advanced searches for data easier.
 We are going to write a POST-request (with a little help from R), to retrieve
 data from Statistics Denmark.
 
-But before we can do that, we need to know how the SD-API expects to receive 
+But before we can do that, we need to know how the Statistics Denmark API expects to receive 
 data.
 
 Hopefully we can get that by reading the [documentation, that can be found here.](https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api){target="_blank"}
@@ -44,7 +44,7 @@ First: Statistics Denmark provides four "functions", or *endpoints*. This is equ
 to the URL we requested data from using the GET method.
 
 
-!["functions or endpoints at the API](fig/DSfunctions.png){Screenshot of endpoints at Statistics Denmark API}
+![Functions or endpoints at the API](fig/DSfunctions.png){alt="Screenshot of endpoints for the Statistics Denmark API"}
 
 - The first is the "web"-site we have to send requests to if we want information 
 on the subjects in Statistics Denmark. 
@@ -141,7 +141,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-03 13:09
+  Date: 2025-12-04 14:24
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
@@ -469,28 +469,6 @@ extract it a bit differently:
 data <- data |> 
   content(type = "text") |> 
   read_csv2()
-```
-
-``` output
-ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
-```
-
-``` output
-No encoding supplied: defaulting to UTF-8.
-```
-
-``` output
-Rows: 30240 Columns: 4
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ";"
-chr (3): OMRÅDE, CIVILSTAND, TID
-dbl (1): INDHOLD
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-``` r
 data
 ```
 
