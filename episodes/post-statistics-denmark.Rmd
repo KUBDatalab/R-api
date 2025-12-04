@@ -35,7 +35,7 @@ POST instead. That allows us to do more advanced searches for data easier.
 We are going to write a POST-request (with a little help from R), to retrieve
 data from Statistics Denmark.
 
-But before we can do that, we need to know how the SD-API expects to receive 
+But before we can do that, we need to know how the Statistics Denmark API expects to receive 
 data.
 
 Hopefully we can get that by reading the [documentation, that can be found here.](https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api){target="_blank"}
