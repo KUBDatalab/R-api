@@ -99,7 +99,7 @@ they primarily concerns how we tell the API what data we would like.
 In a *GET* request, we encode what we would like returned in the URL.
 You probably know that way already.
 
-The URL "<https://icanhazdadjoke.com/search?term=dog>" is asking the
+The URL "[https://icanhazdadjoke.com/search?term=dog](https://icanhazdadjoke.com/search?term=dog){target="_blank"}" is asking the
 server to search for the term "dog". What we are searching for, is
 placed directly in the URL.
 
