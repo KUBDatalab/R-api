@@ -45,7 +45,7 @@ mechanics of this communication can be visualized like this:
 
 
 
-![Structure of what is happening behind the scenes when we request a webpage](fig/http-structure.png)
+![Structure of what is happening behind the scenes when we request a webpage](fig/http-structure.png){alt="Illustration of a http-request"}
 
 
 -   When we type in an URL in our browser, it translates that URL to a
@@ -99,20 +99,20 @@ they primarily concerns how we tell the API what data we would like.
 In a *GET* request, we encode what we would like returned in the URL.
 You probably know that way already.
 
-The URL "<https://icanhazdadjoke.com/search?term=dog>" is asking the
+The URL "[https://icanhazdadjoke.com/search?term=dog](https://icanhazdadjoke.com/search?term=dog){target="_blank"}" is asking the
 server to search for the term "dog". What we are searching for, is
 placed directly in the URL.
 
 What we are sending to the server looks like this:
 
-![Content of a GET header](fig/GET-headers.png)
+![Content of a GET header](fig/GET-headers.png){alt="Illustration of the content of a GET request"}
 
 In a *POST* request, that information is stored in the body of the
 request.
 
 That looks like this:
 
-![Contents of a POST header](fig/POST-headers.png)
+![Contents of a POST header](fig/POST-headers.png){alt="Illustration of the content of a POST request"}
 
 Note that the main difference between these two sets of headers, besides
 the difference in GET and POST, is that there is a *body* in the POST
