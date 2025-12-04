@@ -6,7 +6,7 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- Is there an easier way to access Statistics Denmark
+- Is there an easier way to access Statistics Denmark?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
