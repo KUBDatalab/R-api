@@ -297,7 +297,7 @@ data <- POST(endpoint, body=our_body, encode = "json")
 The data is returned as csv - we defined that in "our_body", so we now need to 
 extract it a bit differently:
 
-```{r vis-final-data}
+```{r vis-final-data, message = FALSE}
 data <- data |> 
   content(type = "text") |> 
   read_csv2()
