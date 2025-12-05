@@ -32,6 +32,7 @@ the background.  You do not need to run it separately.
 :::::::::::::::: solution
 
 ### Online
+
 Rather than installing R and RStudio on your personal computer, 
 [Posit Cloud](https://posit.cloud/){target="_blank"} offers a free, online alternative,
 where you will be able to run R and RStudio in your browser. 

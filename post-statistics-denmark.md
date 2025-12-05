@@ -7,6 +7,7 @@ exercises: 15
 :::::::::::::::::::::::::::::::::::::: questions 
 
 - How do I get data from an API using the POST method?
+
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
@@ -141,7 +142,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-05 12:31
+  Date: 2025-12-05 13:09
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
