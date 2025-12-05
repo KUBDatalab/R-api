@@ -76,7 +76,7 @@ Looking closer at the illustration above, we can see that we send a
 request to the server. That request contains several parts.
 
 *The request line.* That contains the method we are using to communicate
-with the server, the adress and path of the server, and the information
+with the server, the address and path of the server, and the information
 about the version of HTTP we are using to communicate with the server.
 
 *The header.* Headers are meta information about our request. It
