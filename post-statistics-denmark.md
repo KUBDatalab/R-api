@@ -130,7 +130,7 @@ Let us try it:
 result <- httr::POST(endpoint, body=our_body, encode = "json")
 ```
 
-We ask to get the result in json, a speciel datastructure that is able to contain almost anything.
+We specify that the request should be encoded as "json".
 
 Let us look at the result:
 
@@ -141,7 +141,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-05 09:51
+  Date: 2025-12-05 12:31
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
