@@ -18,7 +18,7 @@ In this couse we assume you have the knowledge equivalent to attending one of ou
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::: solution
+:::::::::::::::: spoiler
 
 ### List of required knowledge
 
