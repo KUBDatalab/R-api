@@ -208,14 +208,14 @@ on an API that provides more factual and serious, but not so funny data.
 
 :::: challenge
 ## Exercise
-Request dad jokes about cats
+Request dad jokes about cats using the `GET()` function, and extract the content.
 
 :::: solution
 
 ## Solution
-
+We've done this earlier, and just have to change "dog" to "cat":
 ```{r challenge-solution}
-GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) |> 
+GET("https://icanhazdadjoke.com/search?term=cat", accept("application/json")) |> 
 content(as="text") |> 
 fromJSON()
 ```
