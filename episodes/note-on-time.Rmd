@@ -38,7 +38,7 @@ marriage status and geographical area. And time.
 
 If the data is not still in memory, we can read it in:
 
-```{r read-data-hidden, echo = F}
+```{r read-data-hidden, echo = F, message = FALSE}
 data <- read_csv2("data/SD_data.csv")
 ```
 
