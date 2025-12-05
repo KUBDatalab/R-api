@@ -101,11 +101,11 @@ This list contains four elements, with names.
 Lists are subset in a special way. If we want the 
 first element in `our_body`, we can use the usual bracket notation:
 
-```{r}
+```{r list-demo-1}
 our_body[1]
 ```
 If we want the actual value of element 1, we use a double bracket notation:
-```{r}
+```{r list-demo-2}
 our_body[[1]]
 ```
 

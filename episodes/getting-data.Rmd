@@ -214,7 +214,7 @@ Request dad jokes about cats
 
 ## Solution
 
-```{r}
+```{r challenge-solution}
 GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) |> 
 content(as="text") |> 
 fromJSON()
