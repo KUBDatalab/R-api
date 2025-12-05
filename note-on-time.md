@@ -37,20 +37,6 @@ marriage status and geographical area. And time.
 If the data is not still in memory, we can read it in:
 
 
-``` output
-ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
-```
-
-``` output
-Rows: 30240 Columns: 4
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ";"
-chr (3): OMRÅDE, CIVILSTAND, TID
-dbl (1): INDHOLD
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
 
 
 ``` r
