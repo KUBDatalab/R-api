@@ -254,17 +254,11 @@ data
 This is a bit more complicated. We are told that:
 
 1. there are five columns in this table.
-
 2. They each have an id
-
 3. And a descriptive text
-
-4. Elimination means that the API will attempt to eliminate the variables we have not chosen values for when data is returned. This makes sense when we get to point 7.
-
+4. Elimination means that the API will attempt to eliminate the variables we have not chosen alues for when data is returned. This makes sense when we get to point 7.
 5. time - only one of the variables contain information about a point in time.
-
 6. One of the variables can be mapped to - well a map
-
 7. The final column provides information about which values are stored in the variable. There are 105 different regions in Denmark. And if we do not choose a specific region - the API will attempt to eliminate this facetting, and return data for all of Denmark.
 
 These data provides useful information for constructing the final call to the API in order to get the data.
@@ -278,12 +272,19 @@ endpoint <- "http://api.statbank.dk/v1/data"
 
 And we will need to specify which information, from which table, we want data in the body of the request. That is a bit more complicated. We need to make a list of lists!
 
+We start by placing the individual lists within a list, and save that to an object - `variables`:
+
 ```{r data-variable}
 variables <- list(list(code = "OMRÅDE", values = I("*")),
                   list(code = "CIVILSTAND", values = I(c("U", "G", "E", "F"))),
                   list(code = "Tid", values = I("*"))
               )
 
+```
+
+We can then embeda that list into a new list, containing the entire body:
+
+```{r data-variable}
 our_body <- list(table = "FOLK1A", lang = "en", format = "CSV", variables = variables)
 
 ```
