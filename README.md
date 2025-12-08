@@ -1,7 +1,7 @@
 # _KUB Datalab: APIs with R_ <a href="https://kubdatalab.github.io/R-api/"><img src="episodes/fig/stickerattempt.png" align="right" height="138" alt="KUB Datalab R-API website" /></a>
 
 <!-- badges: start -->
-[![DOI](https://zenodo.org/badge/835153711.svg)](https://doi.org/10.5281/zenodo.17803256)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17856326.svg)](https://doi.org/10.5281/zenodo.17856326)
 <!-- badges: end -->
 
 
