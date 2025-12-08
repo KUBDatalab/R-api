@@ -22,7 +22,7 @@ In this couse we assume you have the knowledge equivalent to attending one of ou
 
 ### List of required knowledge
 
-- <a href="https://kubdatalab.github.io/R-api/#software-setup" target="_blank">Have R and R-studio installed</a> 
+- <a href="https://kubdatalab.github.io/R-api/#software-setup" target="_blank">Have R and Positron (or RStudio) installed</a> 
     - Alternatively run everything on [posit.cloud](https://posit.cloud/){target="_blank"}
 - Know how to assign values to variables
 - Know what a function is, and how we pass input and parameters to it
@@ -53,6 +53,4 @@ Three concepts are typically not covered in our introductions.
 - lists
 
 We will look at them when we need them.
-
-[workbench]: https://carpentries.github.io/sandpaper-docs
 
