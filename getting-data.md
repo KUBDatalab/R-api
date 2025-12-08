@@ -46,10 +46,10 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-08 10:35
+  Date: 2025-12-08 12:35
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.5 kB
+  Size: 11.8 kB
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-08 10:35
+  Date: 2025-12-08 12:35
   Status: 200
   Content-Type: text/plain
-  Size: 55 B
+  Size: 102 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "Which is the fastest growing city in the world? Dublin'"
+[1] "What do computers and air conditioners have in common? They both become useless when you open windows."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -151,16 +151,16 @@ Looking at the documentation, we see an example, which indicates that what we sh
 
 ``` r
 result <- GET("https://icanhazdadjoke.com/", accept("application/json")) 
-result
+result 
 ```
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2025-12-08 10:35
+  Date: 2025-12-08 12:35
   Status: 200
   Content-Type: application/json
-  Size: 142 B
-{"id":"wHYgNmrcxc","joke":"I started a new business making yachts in my attic...
+  Size: 149 B
+{"id":"LRf2obFBskb","joke":"Don\u2019t interrupt someone working intently on ...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "wHYgNmrcxc"
+[1] "LRf2obFBskb"
 
 $joke
-[1] "I started a new business making yachts in my attic this year...the sails are going through the roof"
+[1] "Don’t interrupt someone working intently on a puzzle. Chances are, you’ll hear some crosswords."
 
 $status
 [1] 200
@@ -218,7 +218,7 @@ And in the examples we get the hint, that we should format the URL as:
 
 https://icanhazdadjoke.com/search?term=<TERM>
 
-Dogs are always fun, let us search for dad jokes about dogs. Specify the type of result we want, pipe the response to the `content()` function and save it to *result*:
+Dogs are always fun, let us search for dad jokes about dogs. Specify the type of result we want, pipe the response to the `content()` function and save it to *result* (the length has been edited):
 
 
 ``` r
@@ -227,6 +227,7 @@ result <- GET("https://icanhazdadjoke.com/search?term=dog",
           content()
 result
 ```
+
 
 ``` output
 $current_page
@@ -266,86 +267,6 @@ $results[[3]]$joke
 [1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
 
 
-$results[[4]]
-$results[[4]]$id
-[1] "DIeaUDlbUDd"
-
-$results[[4]]$joke
-[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
-
-
-$results[[5]]
-$results[[5]]$id
-[1] "EBQfiyXD5ob"
-
-$results[[5]]$joke
-[1] "what do you call a dog that can do magic tricks? a labracadabrador"
-
-
-$results[[6]]
-$results[[6]]$id
-[1] "GtH6E6UD5Ed"
-
-$results[[6]]$joke
-[1] "What kind of dog lives in a particle accelerator? A Fermilabrador Retriever."
-
-
-$results[[7]]
-$results[[7]]$id
-[1] "obhFBljb2g"
-
-$results[[7]]$joke
-[1] "I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door."
-
-
-$results[[8]]
-$results[[8]]$id
-[1] "89MZLmWnWvc"
-
-$results[[8]]$joke
-[1] "I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog."
-
-
-$results[[9]]
-$results[[9]]$id
-[1] "71wsPKeF6h"
-
-$results[[9]]$joke
-[1] "What did the dog say to the two trees? Bark bark."
-
-
-$results[[10]]
-$results[[10]]$id
-[1] "R7UfaahVfFd"
-
-$results[[10]]$joke
-[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
-
-
-$results[[11]]
-$results[[11]]$id
-[1] "sPRnOfiyAAd"
-
-$results[[11]]$joke
-[1] "At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline."
-
-
-$results[[12]]
-$results[[12]]$id
-[1] "AQn3wPKeqrc"
-
-$results[[12]]$joke
-[1] "It was raining cats and dogs the other day. I almost stepped in a poodle."
-
-
-$results[[13]]
-$results[[13]]$id
-[1] "Lmjqzsr49pb"
-
-$results[[13]]$joke
-[1] "What did the Zen Buddist say to the hotdog vendor? Make me one with everything."
-
-
 
 $search_term
 [1] "dog"
@@ -359,6 +280,7 @@ $total_jokes
 $total_pages
 [1] 1
 ```
+
 
 This is in JSON format. It is clear that the jokes are in the \$results part of that datastructure. How can we get that to a data frame?
 
@@ -395,8 +317,8 @@ $results
 6  GtH6E6UD5Ed
 7   obhFBljb2g
 8  89MZLmWnWvc
-9   71wsPKeF6h
-10 R7UfaahVfFd
+9  R7UfaahVfFd
+10  71wsPKeF6h
 11 sPRnOfiyAAd
 12 AQn3wPKeqrc
 13 Lmjqzsr49pb
@@ -409,8 +331,8 @@ $results
 6                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
 7                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
 8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-9                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
-10                                                                                                                                                                                    My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
 11                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 12                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -472,28 +394,28 @@ $previous_page
 
 $results
             id
-1  iGJeVKmWDlb
-2   8UnrHe2T0g
-3     daaUfibh
-4  O7haxA5Tfxc
+1     daaUfibh
+2  iGJeVKmWDlb
+3   8UnrHe2T0g
+4  BQfaxsHBsrc
 5  1wkqrcNCljb
-6  AQn3wPKeqrc
-7  0wcFBQfiGBd
+6  O7haxA5Tfxc
+7  AQn3wPKeqrc
 8  TS0gFlqr4ob
-9  0DdaxAX0orc
-10 BQfaxsHBsrc
+9  0wcFBQfiGBd
+10 0DdaxAX0orc
 11   39Etc2orc
                                                                                   joke
-1                  My cat was just sick on the carpet, I don’t think it’s feline well.
-2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-3            Why was the big cat disqualified from the race? Because it was a cheetah.
-4                                         Where do cats write notes?\r\nScratch Paper!
+1            Why was the big cat disqualified from the race? Because it was a cheetah.
+2                  My cat was just sick on the carpet, I don’t think it’s feline well.
+3                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+4                                        What do you call a pile of cats?  A Meowtain.
 5          Did you know that protons have mass? I didn't even know they were catholic.
-6            It was raining cats and dogs the other day. I almost stepped in a poodle.
-7             Did you hear the joke about the wandering nun? She was a roman catholic.
+6                                         Where do cats write notes?\r\nScratch Paper!
+7            It was raining cats and dogs the other day. I almost stepped in a poodle.
 8                      What do you call a group of disorganized cats? A cat-tastrophe.
-9                         I accidentally took my cats meds last night. Don’t ask meow.
-10                                       What do you call a pile of cats?  A Meowtain.
+9             Did you hear the joke about the wandering nun? She was a roman catholic.
+10                        I accidentally took my cats meds last night. Don’t ask meow.
 11 Why did the man run around his bed? Because he was trying to catch up on his sleep!
 
 $search_term

@@ -142,7 +142,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-05 13:09
+  Date: 2025-12-08 12:35
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
@@ -419,17 +419,11 @@ $variables
 This is a bit more complicated. We are told that:
 
 1. there are five columns in this table.
-
 2. They each have an id
-
 3. And a descriptive text
-
-4. Elimination means that the API will attempt to eliminate the variables we have not chosen values for when data is returned. This makes sense when we get to point 7.
-
+4. Elimination means that the API will attempt to eliminate the variables we have not chosen alues for when data is returned. This makes sense when we get to point 7.
 5. time - only one of the variables contain information about a point in time.
-
 6. One of the variables can be mapped to - well a map
-
 7. The final column provides information about which values are stored in the variable. There are 105 different regions in Denmark. And if we do not choose a specific region - the API will attempt to eliminate this facetting, and return data for all of Denmark.
 
 These data provides useful information for constructing the final call to the API in order to get the data.
@@ -444,13 +438,20 @@ endpoint <- "http://api.statbank.dk/v1/data"
 
 And we will need to specify which information, from which table, we want data in the body of the request. That is a bit more complicated. We need to make a list of lists!
 
+We start by placing the individual lists within a list, and save that to an object - `variables`:
+
 
 ``` r
 variables <- list(list(code = "OMRÅDE", values = I("*")),
                   list(code = "CIVILSTAND", values = I(c("U", "G", "E", "F"))),
                   list(code = "Tid", values = I("*"))
               )
+```
 
+We can then embed that list into a new list, containing the entire body:
+
+
+``` r
 our_body <- list(table = "FOLK1A", lang = "en", format = "CSV", variables = variables)
 ```
 
@@ -500,8 +501,14 @@ same techniques we use when we access an arbitrary other API. The fields,
 endpoints etc might be different. We might have an added complication of having 
 to login to it. But the techniques can be reused.
 
+If we want, we can save the data:
 
 
+``` r
+write_csv2(data, "/data/SD_data.csv")
+```
+
+Remember to make a `data` folder before trying to save data in it.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
