@@ -116,13 +116,6 @@ sub_subjects
 1 3401, 3407, 3410, 3415, 3412, 3411, 3428, 3409, Population, Households and family matters , Migration, Housing, Health, Democracy, National church, Names, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE
 ```
 
-
-
-
-
-
-
-
 The result is a bit complicated. The column "subjects" in the resulting dataframe
 contains another dataframe. We access it like we normally would access a 
 column in a dataframe:
@@ -145,206 +138,53 @@ sub_subjects$subjects
 8 3409                          Names   TRUE        TRUE     NULL
 ```
 
-Those sub-subjects have their own subjects! Lets get to the bottom of this, and
-use 2401, Population and population projections as an example:
+We can continue diving into this, and will end up with subject "20021	Population figures".
 
-
-``` r
-sub_sub_subjects <- get_subjects("3401")
-sub_sub_subjects$subjects
-```
-
-``` output
-[[1]]
-     id                      description active hasSubjects subjects
-1 20021               Population figures   TRUE       FALSE     NULL
-2 20024 Immigrants and their descendants   TRUE       FALSE     NULL
-3 20022           Population projections   TRUE       FALSE     NULL
-4 20019                        Adoptions  FALSE       FALSE     NULL
-5 20017                           Births   TRUE       FALSE     NULL
-6 20018                        Fertility   TRUE       FALSE     NULL
-7 20014                           Deaths   TRUE       FALSE     NULL
-8 20015                  Life expectancy   TRUE       FALSE     NULL
-```
-Now we are at the bottom. We can see in the column "hasSubjects" that there 
-are no sub_sub_sub_subjects. 
-
-The hierarchy is:
-1 Population and elections
-| 
-3401	Population 
-|
-20021	Population figures
-
-The final sub_sub_subject contains a number of tables, that actually 
-contains the data we are looking for.
-
-get_subjects is able to retrieve all the sub, sub-sub and sub-sub-sub-jects in
-one go. The result is a bit confusing and difficult to navigate.
-
-Remember that the initial result was a dataframe containing another dataframe.
-If we go all the way to the bottom, we will get a dataframe, containing several
-dataframes, each of those containing several dataframes. 
-
-We recommend that you do not try it, but this is how it is done:
-
-``` r
-lots_of_subjects <- get_subjects(1, recursive = T, include_tables = T)
-```
-
-The `recursive = T` parameter means that get_subjects will retrieve 
-the subjects of the subjects, and then the subjects of those subjects.
 
 ## Which datatables exists?
 
-But we ended up with a sub_sub_subject, 
+We ended up with a specific subject, 
 
 *20021	Population figures*
 
-How do we find out which tables exists in this subject?
-
-The `get_tables()` function returns a dataframe with information about the 
-tables available for a given subject.
-
+And can use the `get_tables()` function to get information about the tables available:
 
 
 ``` r
 tables <- get_tables(subjects="20021")
-tables
+tables |> head()
 ```
 
 ``` output
-         id
-1    FOLK1A
-2   FOLK1AM
-3   BEFOLK1
-4   BEFOLK2
-5     FOLK3
-6  FOLK3FOD
-7      BEF5
-8        FT
-9     HISB3
-10      BY1
-11      BY2
-12      BY3
-13     BEF4
-14  POSTNR1
-15  POSTNR2
-16      KM1
-17    SOGN1
-18   LABY02
-19   LABY03
-20   LABY05
-21    BEF5F
-22    BEF5G
-23    BEV22
-24   LABY01
-25   BEV107
-26 KMSTA003
-27   GALDER
-28 KMGALDER
-                                                                         text
-1                                  Population at the first day of the quarter
-2                                    Population at the first day of the month
-3                                                       Population 1. January
-4                                                       Population 1. January
-5                                                       Population 1. January
-6                                                       Population 1. January
-7                                                       Population 1. January
-8                                                Population from the censuses
-9                                                    Summary vital statistics
-10                                                      Population 1. January
-11                                                      Population 1. January
-12                                                      Population 1. January
-13                                                      Population 1. January
-14                                                      Population 1. January
-15                                                      Population 1. January
-16                                 Population at the first day of the quarter
-17                                                      Population 1. January
-18              Population i percentage of all in the same municipality group
-19                             Population i percentage of all in the same age
-20 Persons, who lived in the same municipality group as they did 20 years ago
-21              People born in Faroe Islands and living in Denmark 1. January
-22                  People born in Greenland and living in Denmark 1. January
-23                                Summary vital statistics (provisional data)
-24                                       Population increase per 1,000 capita
-25                                                   Summary vital statistics
-26                                                   Summary vital statistics
-27                                                                Average age
-28                                                                Average age
-               unit             updated firstPeriod latestPeriod active
-1            Number 2025-11-10T08:00:00      2008Q1       2025Q4   TRUE
-2            Number 2025-11-10T08:00:00     2021M10      2025M10   TRUE
-3            Number 2025-02-11T08:00:00        1971         2025   TRUE
-4            Number 2025-02-11T08:00:00        1901         2025   TRUE
-5            Number 2025-02-11T08:00:00        2008         2025   TRUE
-6            Number 2025-02-11T08:00:00        2008         2025   TRUE
-7            Number 2025-02-11T08:00:00        1990         2025   TRUE
-8            Number 2025-02-11T08:00:00        1769         2025   TRUE
-9            Number 2025-02-12T08:00:00        1901         2025   TRUE
-10           Number 2025-05-14T08:00:00        2010         2025   TRUE
-11           Number 2025-05-14T08:00:00        2010         2025   TRUE
-12                - 2025-06-10T08:00:00        2017         2025   TRUE
-13           Number 2025-04-03T08:00:00        1901         2025   TRUE
-14           Number 2025-02-11T08:00:00        2010         2025   TRUE
-15           Number 2025-02-11T08:00:00        2010         2025   TRUE
-16           Number 2025-11-10T08:00:00      2007Q1       2025Q4   TRUE
-17           Number 2025-02-11T08:00:00        2010         2025   TRUE
-18         Per cent 2025-02-11T08:00:00        2008         2025   TRUE
-19         Per cent 2025-02-11T08:00:00        2008         2025   TRUE
-20         Per cent 2025-02-11T08:00:00        2007         2025   TRUE
-21           Number 2025-02-11T08:00:00        2008         2025   TRUE
-22           Number 2025-02-11T08:00:00        2008         2025   TRUE
-23           Number 2025-11-10T08:00:00      2007Q2       2025Q3   TRUE
-24 Per 1,000 capita 2025-02-11T08:00:00        2007         2024   TRUE
-25           Number 2025-02-11T08:00:00        2006         2024   TRUE
-26           Number 2025-02-11T08:00:00        2015         2024   TRUE
-27             Avg. 2025-02-11T08:00:00        2005         2025   TRUE
-28             Avg. 2025-02-11T08:00:00        2007         2025   TRUE
-                                                             variables
-1                               region, sex, age, marital status, time
-2                                               region, sex, age, time
-3                                       sex, age, marital status, time
-4                                                       sex, age, time
-5                       day of birth, birth month, year of birth, time
-6                    day of birth, birth month, country of birth, time
-7                                     sex, age, country of birth, time
-8                                                  national part, time
-9                                               type of movement, time
-10                               urban and rural areas, age, sex, time
-11                             municipality, city size, age, sex, time
-12 urban and rural areas, population area and population density, time
-13                                                       islands, time
-14                                         postal code, sex, age, time
-15                                         postal code, sex, age, time
-16                         parish, member of the National Church, time
-17                                              parish, sex, age, time
-18                                      municipality groups, age, time
-19                                      municipality groups, age, time
-20                                      municipality groups, age, time
-21                              sex, age, parents place of birth, time
-22                              sex, age, parents place of birth, time
-23                                 region, type of movement, sex, time
-24                         municipality groups, type of movement, time
-25                                 region, type of movement, sex, time
-26                                             parish, movements, time
-27                                             municipality, sex, time
-28                                                   parish, sex, time
+        id                                       text   unit
+1   FOLK1A Population at the first day of the quarter Number
+2  FOLK1AM   Population at the first day of the month Number
+3  BEFOLK1                      Population 1. January Number
+4  BEFOLK2                      Population 1. January Number
+5    FOLK3                      Population 1. January Number
+6 FOLK3FOD                      Population 1. January Number
+              updated firstPeriod latestPeriod active
+1 2025-11-10T08:00:00      2008Q1       2025Q4   TRUE
+2 2025-11-10T08:00:00     2021M10      2025M10   TRUE
+3 2025-02-11T08:00:00        1971         2025   TRUE
+4 2025-02-11T08:00:00        1901         2025   TRUE
+5 2025-02-11T08:00:00        2008         2025   TRUE
+6 2025-02-11T08:00:00        2008         2025   TRUE
+                                          variables
+1            region, sex, age, marital status, time
+2                            region, sex, age, time
+3                    sex, age, marital status, time
+4                                    sex, age, time
+5    day of birth, birth month, year of birth, time
+6 day of birth, birth month, country of birth, time
 ```
 
-We get at lot of information here. The id identifies the table, text gives a 
-description of the table that humans can understand. When the table was last
-updated and the first and last period that the table contains data for.
-
-In the variables column, we get information on what kind of data is stored in 
-the table.
-
-Before we pull out the data, we need to know which variables are available
-in the table. We do this with this function:
+We have seen this information before, and can now use the `get_table_metadata()` function
+to extract metadata on specific tables: 
 
 
 ``` r
-metadata <- get_table_metadata("FOLK1A", variables_only = T)
+metadata <- get_table_metadata("FOLK1A", variables_only = TRUE)
 metadata
 ```
 
@@ -363,10 +203,7 @@ metadata
 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4
 ```
 
-There is a lot of other metadata in the tables, including the phone number to 
-the staffmember at Statistics Denmark that is responsible for maintaining the
-table. We are only interested in the variables, which is why we add the 
-parameter `variables_only = T`.
+We use the `variables_only = TRUE` to remove eg. contact information to Statistics Denmark.
 
 
 What kind of values can the individual datapoints take?
@@ -414,118 +251,16 @@ metadata |>
 ```
 Here we see the individual municipalities in Denmark. 
 
-Now we are almost ready to pull out the actual data!
-
-But first!
 
 ## Which variables do we want?
 
-We need to specify which variables we want in our answer. Do we want 
-the total population for all municipalities in Denmark? Or just a few?
-Do we want the total population, or do we want it broken down by sex.
+As before we need to specify the variables we want in our answer.
+
 
 These variables, and the values of them, need to be specified when we 
 pull the data from Statistics Denmark.
 
-We also need to provide that information in a specific way.
-
-If we want data for all municipalites, we want to pull the variable 
-"OMRÅDE" from the list of variables.
-
-Therefore we need to give the function an argument containing both
-the information that we want the population data broken down by "OMRÅDE", and 
-that we want all values of "OMRÅDE".
-
-As before, we need to specify what we want using a list. 
-Let us make our first list:
-
-
-``` r
-list(code = "OMRÅDE", values = NA)
-```
-
-``` output
-$code
-[1] "OMRÅDE"
-
-$values
-[1] NA
-```
-  
-This list have to components. One called "code", and one called "values".
-Code have the content "OMRÅDE", specifying that we want the variable in the 
-data from Statistics Denmark calld "OMRÅDE".
-
-"values" has the content "NA". We use "NA", when we want to specify that we
-want all the "OMRÅDE". If we only wanted a specific municipality, we could 
-instead specify it instead of writing "NA".
-
-Let us assume that we also want to break down the data based on marriage status.
-
-That information is stored in the variable "CIVILSTAND".
-
-And above, we saw that we had the following values in that variable:
-
-``` r
-metadata |> 
-  slice(4) |> 
-  pull(values)
-```
-
-``` output
-[[1]]
-   id              text
-1 TOT             Total
-2   U     Never married
-3   G Married/separated
-4   E           Widowed
-5   F          Divorced
-```
-
-A value for the total population is probably not that interesting, if we 
-pull all the individual values for "Never married" etc.
-
-We can now make another list:
-
-``` r
-  list(code = "CIVILSTAND", values = c("U", "G", "E", "F"))
-```
-
-``` output
-$code
-[1] "CIVILSTAND"
-
-$values
-[1] "U" "G" "E" "F"
-```
-
-Here the "values" part is a vector containing the values we want to pull out 
-for that variable.
-
-It might be interesting to take a look at how the population changes over time.
-
-In that case we need to pull out data from the "Tid" variable.
-
-That would look like this:
-
-``` r
-list(code = "Tid", values = NA)
-```
-
-``` output
-$code
-[1] "Tid"
-
-$values
-[1] NA
-```
-
-
-If we want to pull data broken down by all three variables, we need to provide a
-list, containing three lists. 
-
-We do that using this code:
-
+We have seen how to do that using the `POST()` function, it is done similarly using the `danstat` package:
 
 
 ``` r
@@ -533,35 +268,9 @@ variables <- list(list(code = "OMRÅDE", values = NA),
                   list(code = "CIVILSTAND", values = c("U", "G", "E", "F")),
                   list(code = "Tid", values = NA)
               )
-variables
 ```
 
-``` output
-[[1]]
-[[1]]$code
-[1] "OMRÅDE"
-
-[[1]]$values
-[1] NA
-
-
-[[2]]
-[[2]]$code
-[1] "CIVILSTAND"
-
-[[2]]$values
-[1] "U" "G" "E" "F"
-
-
-[[3]]
-[[3]]$code
-[1] "Tid"
-
-[[3]]$values
-[1] NA
-```
-
-And now, finally, we are ready to get the data!
+And now we can call the `get_data()` function and retrieve data:
 
 
 ``` r
@@ -578,6 +287,7 @@ dbl (1): INDHOLD
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
+
 It takes a short moment. But now we have a dataframe containing the data we 
 requested:
 
@@ -596,17 +306,6 @@ head(data)
 4 All Denmark Never married 2008Q4 2568255
 5 All Denmark Never married 2009Q1 2575185
 6 All Denmark Never married 2009Q2 2584993
-```
-
-This procedure will work for all the tables from Statistics Denmark!
-
-The data is nicely formatted and ready to use. Almost.
-
-Before we do anything else, let us save the data.
-
-
-``` r
-write_csv2(data, "data/SD_data.csv")
 ```
 
 
