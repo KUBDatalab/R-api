@@ -286,7 +286,6 @@ We can then embed that list into a new list, containing the entire body:
 
 ```{r data-variable-body}
 our_body <- list(table = "FOLK1A", lang = "en", format = "CSV", variables = variables)
-
 ```
 
 
@@ -316,8 +315,13 @@ same techniques we use when we access an arbitrary other API. The fields,
 endpoints etc might be different. We might have an added complication of having 
 to login to it. But the techniques can be reused.
 
+If we want, we can save the data:
 
+```{r saving_data, eval = FALSE}
+write_csv2(data, "/data/SD_data.csv")
+```
 
+Remember to make a `data` folder before trying to save data in it.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
