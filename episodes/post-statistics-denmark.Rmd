@@ -282,9 +282,9 @@ variables <- list(list(code = "OMRÅDE", values = I("*")),
 
 ```
 
-We can then embeda that list into a new list, containing the entire body:
+We can then embed that list into a new list, containing the entire body:
 
-```{r data-variable}
+```{r data-variable-body}
 our_body <- list(table = "FOLK1A", lang = "en", format = "CSV", variables = variables)
 
 ```
