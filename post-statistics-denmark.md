@@ -142,7 +142,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2025-12-08 12:35
+  Date: 2026-01-06 09:55
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
@@ -333,7 +333,7 @@ data |> head()
 6 FOLK3FOD                      Population 1. January Number
               updated firstPeriod latestPeriod active
 1 2025-11-10T08:00:00      2008Q1       2025Q4   TRUE
-2 2025-11-10T08:00:00     2021M10      2025M10   TRUE
+2 2025-12-10T08:00:00     2021M10      2025M11   TRUE
 3 2025-02-11T08:00:00        1971         2025   TRUE
 4 2025-02-11T08:00:00        1901         2025   TRUE
 5 2025-02-11T08:00:00        2008         2025   TRUE
