@@ -46,10 +46,10 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-01-06 09:55
+  Date: 2026-03-31 01:16
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.7 kB
+  Size: 11.6 kB
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-01-06 09:55
+  Date: 2026-03-31 01:16
   Status: 200
   Content-Type: text/plain
-  Size: 100 B
+  Size: 58 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "My friend told me that pepper is the best seasoning for a roast, but I took it with a grain of salt."
+[1] "What do you call a boy who stopped digging holes? Douglas."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-01-06 09:55
+  Date: 2026-03-31 01:16
   Status: 200
   Content-Type: application/json
-  Size: 121 B
-{"id":"giyXgahV0wc","joke":"The great thing about stationery shops is they're...
+  Size: 84 B
+{"id":"nWvXSvHBd","joke":"I hate perforated lines, they're tearable.","status...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "giyXgahV0wc"
+[1] "nWvXSvHBd"
 
 $joke
-[1] "The great thing about stationery shops is they're always in the same place..."
+[1] "I hate perforated lines, they're tearable."
 
 $status
 [1] 200
@@ -261,10 +261,10 @@ $results[[2]]$joke
 
 $results[[3]]
 $results[[3]]$id
-[1] "R7UfaahVfFd"
+[1] "EBQfiyXD5ob"
 
 $results[[3]]$joke
-[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+[1] "what do you call a dog that can do magic tricks? a labracadabrador"
 
 
 
@@ -394,29 +394,29 @@ $previous_page
 
 $results
             id
-1  iGJeVKmWDlb
-2   8UnrHe2T0g
-3     daaUfibh
-4    39Etc2orc
-5  BQfaxsHBsrc
-6  1wkqrcNCljb
-7  AQn3wPKeqrc
-8  O7haxA5Tfxc
-9  TS0gFlqr4ob
-10 0wcFBQfiGBd
-11 0DdaxAX0orc
+1   8UnrHe2T0g
+2     daaUfibh
+3  iGJeVKmWDlb
+4  1wkqrcNCljb
+5  AQn3wPKeqrc
+6  O7haxA5Tfxc
+7  TS0gFlqr4ob
+8  0wcFBQfiGBd
+9  0DdaxAX0orc
+10   39Etc2orc
+11 BQfaxsHBsrc
                                                                                   joke
-1                  My cat was just sick on the carpet, I don’t think it’s feline well.
-2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-3            Why was the big cat disqualified from the race? Because it was a cheetah.
-4  Why did the man run around his bed? Because he was trying to catch up on his sleep!
-5                                        What do you call a pile of cats?  A Meowtain.
-6          Did you know that protons have mass? I didn't even know they were catholic.
-7            It was raining cats and dogs the other day. I almost stepped in a poodle.
-8                                         Where do cats write notes?\r\nScratch Paper!
-9                      What do you call a group of disorganized cats? A cat-tastrophe.
-10            Did you hear the joke about the wandering nun? She was a roman catholic.
-11                        I accidentally took my cats meds last night. Don’t ask meow.
+1                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+2            Why was the big cat disqualified from the race? Because it was a cheetah.
+3                  My cat was just sick on the carpet, I don’t think it’s feline well.
+4          Did you know that protons have mass? I didn't even know they were catholic.
+5            It was raining cats and dogs the other day. I almost stepped in a poodle.
+6                                         Where do cats write notes?\r\nScratch Paper!
+7                      What do you call a group of disorganized cats? A cat-tastrophe.
+8             Did you hear the joke about the wandering nun? She was a roman catholic.
+9                         I accidentally took my cats meds last night. Don’t ask meow.
+10 Why did the man run around his bed? Because he was trying to catch up on his sleep!
+11                                       What do you call a pile of cats?  A Meowtain.
 
 $search_term
 [1] "cat"
