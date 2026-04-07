@@ -46,7 +46,7 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-03-31 01:16
+  Date: 2026-04-07 01:12
   Status: 200
   Content-Type: text/html; charset=utf-8
   Size: 11.6 kB
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-03-31 01:16
+  Date: 2026-04-07 01:12
   Status: 200
   Content-Type: text/plain
-  Size: 58 B
+  Size: 85 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "What do you call a boy who stopped digging holes? Douglas."
+[1] "I went on a date last night with a girl from the zoo. It was great. She’s a keeper."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-03-31 01:16
+  Date: 2026-04-07 01:12
   Status: 200
   Content-Type: application/json
-  Size: 84 B
-{"id":"nWvXSvHBd","joke":"I hate perforated lines, they're tearable.","status...
+  Size: 121 B
+{"id":"ZDAlOZgydxc","joke":"How many optometrists does it take to change a li...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "nWvXSvHBd"
+[1] "ZDAlOZgydxc"
 
 $joke
-[1] "I hate perforated lines, they're tearable."
+[1] "How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?"
 
 $status
 [1] 200
@@ -261,10 +261,10 @@ $results[[2]]$joke
 
 $results[[3]]
 $results[[3]]$id
-[1] "EBQfiyXD5ob"
+[1] "lyk3EIBQfxc"
 
 $results[[3]]$joke
-[1] "what do you call a dog that can do magic tricks? a labracadabrador"
+[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
 
 
 
@@ -319,8 +319,8 @@ $results
 8  89MZLmWnWvc
 9  R7UfaahVfFd
 10  71wsPKeF6h
-11 AQn3wPKeqrc
-12 sPRnOfiyAAd
+11 sPRnOfiyAAd
+12 AQn3wPKeqrc
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
 1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
@@ -333,8 +333,8 @@ $results
 8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
 9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
 10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
-11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
-12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
+11                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
+12                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
 
 $search_term
@@ -394,29 +394,29 @@ $previous_page
 
 $results
             id
-1   8UnrHe2T0g
-2     daaUfibh
-3  iGJeVKmWDlb
+1  iGJeVKmWDlb
+2   8UnrHe2T0g
+3     daaUfibh
 4  1wkqrcNCljb
 5  AQn3wPKeqrc
 6  O7haxA5Tfxc
 7  TS0gFlqr4ob
-8  0wcFBQfiGBd
-9  0DdaxAX0orc
-10   39Etc2orc
-11 BQfaxsHBsrc
+8  0DdaxAX0orc
+9  0wcFBQfiGBd
+10 BQfaxsHBsrc
+11   39Etc2orc
                                                                                   joke
-1                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-2            Why was the big cat disqualified from the race? Because it was a cheetah.
-3                  My cat was just sick on the carpet, I don’t think it’s feline well.
+1                  My cat was just sick on the carpet, I don’t think it’s feline well.
+2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+3            Why was the big cat disqualified from the race? Because it was a cheetah.
 4          Did you know that protons have mass? I didn't even know they were catholic.
 5            It was raining cats and dogs the other day. I almost stepped in a poodle.
 6                                         Where do cats write notes?\r\nScratch Paper!
 7                      What do you call a group of disorganized cats? A cat-tastrophe.
-8             Did you hear the joke about the wandering nun? She was a roman catholic.
-9                         I accidentally took my cats meds last night. Don’t ask meow.
-10 Why did the man run around his bed? Because he was trying to catch up on his sleep!
-11                                       What do you call a pile of cats?  A Meowtain.
+8                         I accidentally took my cats meds last night. Don’t ask meow.
+9             Did you hear the joke about the wandering nun? She was a roman catholic.
+10                                       What do you call a pile of cats?  A Meowtain.
+11 Why did the man run around his bed? Because he was trying to catch up on his sleep!
 
 $search_term
 [1] "cat"
