@@ -46,10 +46,10 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-07 01:12
+  Date: 2026-04-14 01:18
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.6 kB
+  Size: 11.8 kB
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-07 01:12
+  Date: 2026-04-14 01:18
   Status: 200
   Content-Type: text/plain
-  Size: 85 B
+  Size: 139 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "I went on a date last night with a girl from the zoo. It was great. She’s a keeper."
+[1] "Whenever the cashier at the grocery store asks my dad if he would like the milk in a bag he replies, ‘No, just leave it in the carton!’"
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-07 01:12
+  Date: 2026-04-14 01:18
   Status: 200
   Content-Type: application/json
-  Size: 121 B
-{"id":"ZDAlOZgydxc","joke":"How many optometrists does it take to change a li...
+  Size: 105 B
+{"id":"0DQKB51oGlb","joke":"What did one nut say as he chased another nut?  I...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "ZDAlOZgydxc"
+[1] "0DQKB51oGlb"
 
 $joke
-[1] "How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?"
+[1] "What did one nut say as he chased another nut?  I'm a cashew!"
 
 $status
 [1] 200
@@ -245,26 +245,26 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[1]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[2]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[3]]
 $results[[3]]$id
-[1] "lyk3EIBQfxc"
+[1] "DIeaUDlbUDd"
 
 $results[[3]]$joke
-[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
+[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
 
 
 
@@ -314,9 +314,9 @@ $results
 3  lyk3EIBQfxc
 4  DIeaUDlbUDd
 5  EBQfiyXD5ob
-6  GtH6E6UD5Ed
-7   obhFBljb2g
-8  89MZLmWnWvc
+6   obhFBljb2g
+7  89MZLmWnWvc
+8  GtH6E6UD5Ed
 9  R7UfaahVfFd
 10  71wsPKeF6h
 11 sPRnOfiyAAd
@@ -328,9 +328,9 @@ $results
 3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
 4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
 5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-7                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+6                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+7                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+8                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
 9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
 10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
 11                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
@@ -397,26 +397,26 @@ $results
 1  iGJeVKmWDlb
 2   8UnrHe2T0g
 3     daaUfibh
-4  1wkqrcNCljb
-5  AQn3wPKeqrc
+4  TS0gFlqr4ob
+5  0wcFBQfiGBd
 6  O7haxA5Tfxc
-7  TS0gFlqr4ob
-8  0DdaxAX0orc
-9  0wcFBQfiGBd
-10 BQfaxsHBsrc
-11   39Etc2orc
+7  0DdaxAX0orc
+8    39Etc2orc
+9  BQfaxsHBsrc
+10 1wkqrcNCljb
+11 AQn3wPKeqrc
                                                                                   joke
 1                  My cat was just sick on the carpet, I don’t think it’s feline well.
 2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
 3            Why was the big cat disqualified from the race? Because it was a cheetah.
-4          Did you know that protons have mass? I didn't even know they were catholic.
-5            It was raining cats and dogs the other day. I almost stepped in a poodle.
+4                      What do you call a group of disorganized cats? A cat-tastrophe.
+5             Did you hear the joke about the wandering nun? She was a roman catholic.
 6                                         Where do cats write notes?\r\nScratch Paper!
-7                      What do you call a group of disorganized cats? A cat-tastrophe.
-8                         I accidentally took my cats meds last night. Don’t ask meow.
-9             Did you hear the joke about the wandering nun? She was a roman catholic.
-10                                       What do you call a pile of cats?  A Meowtain.
-11 Why did the man run around his bed? Because he was trying to catch up on his sleep!
+7                         I accidentally took my cats meds last night. Don’t ask meow.
+8  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+9                                        What do you call a pile of cats?  A Meowtain.
+10         Did you know that protons have mass? I didn't even know they were catholic.
+11           It was raining cats and dogs the other day. I almost stepped in a poodle.
 
 $search_term
 [1] "cat"

@@ -165,7 +165,7 @@ tables |> head()
 6 FOLK3FOD                      Population 1. January Number
               updated firstPeriod latestPeriod active
 1 2026-02-12T08:00:00      2008Q1       2026Q1   TRUE
-2 2026-03-10T08:00:00     2021M10      2026M02   TRUE
+2 2026-04-10T08:00:00     2021M10      2026M03   TRUE
 3 2026-02-12T08:00:00        1971         2026   TRUE
 4 2026-02-12T08:00:00        1901         2026   TRUE
 5 2026-02-12T08:00:00        2008         2026   TRUE
@@ -277,31 +277,10 @@ And now we can call the `get_data()` function and retrieve data:
 data <- get_data(table_id = "FOLK1A", variables = variables)
 ```
 
-``` warning
-Warning: The `file` argument of `vroom()` must use `I()` for literal data as of vroom
-1.5.0.
-  
-  # Bad:
-  vroom("X,Y\n1.5,2.3\n")
-  
-  # Good:
-  vroom(I("X,Y\n1.5,2.3\n"))
-ℹ The deprecated feature was likely used in the readr package.
-  Please report the issue at <https://github.com/tidyverse/readr/issues>.
-This warning is displayed once per session.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-generated.
-```
-
-``` output
-Rows: 30660 Columns: 4
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ";"
-chr (3): OMRÅDE, CIVILSTAND, TID
-dbl (1): INDHOLD
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+``` error
+Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
+! Timeout was reached [api.statbank.dk]:
+OpenSSL SSL_read: Connection reset by peer, errno 104
 ```
 
 It takes a short moment. But now we have a dataframe containing the data we 
@@ -313,15 +292,13 @@ head(data)
 ```
 
 ``` output
-# A tibble: 6 × 4
-  OMRÅDE      CIVILSTAND    TID    INDHOLD
-  <chr>       <chr>         <chr>    <dbl>
-1 All Denmark Never married 2008Q1 2552700
-2 All Denmark Never married 2008Q2 2563134
-3 All Denmark Never married 2008Q3 2564705
-4 All Denmark Never married 2008Q4 2568255
-5 All Denmark Never married 2009Q1 2575185
-6 All Denmark Never married 2009Q2 2584993
+                                                                            
+1 function (..., list = character(), package = NULL, lib.loc = NULL,        
+2     verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) 
+3 {                                                                         
+4     fileExt <- function(x) {                                              
+5         db <- grepl("\\\\.[^.]+\\\\.(gz|bz2|xz)$", x)                     
+6         ans <- sub(".*\\\\.", "", x)                                      
 ```
 
 
