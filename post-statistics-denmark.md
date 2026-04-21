@@ -131,12 +131,6 @@ Let us try it:
 result <- httr::POST(endpoint, body=our_body, encode = "json")
 ```
 
-``` error
-Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
-! Timeout was reached [api.statbank.dk]:
-Connection timeout after 10001 ms
-```
-
 We specify that the request should be encoded as "json".
 
 Let us look at the result:
@@ -146,9 +140,12 @@ Let us look at the result:
 result
 ```
 
-``` error
-Error:
-! object 'result' not found
+``` output
+Response [https://api.statbank.dk/v1/subjects]
+  Date: 2026-04-21 01:18
+  Status: 200
+  Content-Type: text/json; charset=utf-8
+  Size: 903 B
 ```
 Both informative. And utterly useless. The informative information is that our request succeeded (cave - it might not succeed on this webpage). We can see that in the status. 200 is an internet code for success.
 
@@ -160,9 +157,8 @@ result |>
   content()
 ```
 
-``` error
-Error:
-! object 'result' not found
+``` output
+[1] "[{\"id\":\"1\",\"description\":\"People\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"2\",\"description\":\"Labour and income\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"3\",\"description\":\"Economy\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"4\",\"description\":\"Social conditions\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"5\",\"description\":\"Education and research\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"6\",\"description\":\"Business\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"7\",\"description\":\"Transport\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"8\",\"description\":\"Culture and leisure\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"9\",\"description\":\"Environment and energy\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]},{\"id\":\"19\",\"description\":\"About Statistics Denmark\",\"active\":true,\"hasSubjects\":true,\"subjects\":[]}]"
 ```
 More informative, but not really easy to read. 
 
@@ -175,9 +171,18 @@ result |>
   fromJSON()
 ```
 
-``` error
-Error:
-! object 'result' not found
+``` output
+   id              description active hasSubjects subjects
+1   1                   People   TRUE        TRUE     NULL
+2   2        Labour and income   TRUE        TRUE     NULL
+3   3                  Economy   TRUE        TRUE     NULL
+4   4        Social conditions   TRUE        TRUE     NULL
+5   5   Education and research   TRUE        TRUE     NULL
+6   6                 Business   TRUE        TRUE     NULL
+7   7                Transport   TRUE        TRUE     NULL
+8   8      Culture and leisure   TRUE        TRUE     NULL
+9   9   Environment and energy   TRUE        TRUE     NULL
+10 19 About Statistics Denmark   TRUE        TRUE     NULL
 ```
 
 A nice dataframe with the ten major subjects in the databases of Statistics Denmark.
