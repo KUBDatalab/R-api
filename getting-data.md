@@ -46,7 +46,7 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-28 01:30
+  Date: 2026-06-08 10:05
   Status: 200
   Content-Type: text/html; charset=utf-8
   Size: 11.6 kB
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-28 01:30
+  Date: 2026-06-08 10:05
   Status: 200
   Content-Type: text/plain
-  Size: 122 B
+  Size: 64 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "How many hipsters does it take to change a lightbulb? Oh, it's a really obscure number. You've probably never heard of it."
+[1] "What did the calculator say to the student? You can count on me."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-04-28 01:30
+  Date: 2026-06-08 10:05
   Status: 200
   Content-Type: application/json
-  Size: 149 B
-{"id":"KmbMJtrjbxc","joke":"I've started telling everyone about the benefits ...
+  Size: 146 B
+{"id":"EYoz51DtHtc","joke":"What do computers and air conditioners have in co...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "KmbMJtrjbxc"
+[1] "EYoz51DtHtc"
 
 $joke
-[1] "I've started telling everyone about the benefits of eating dried grapes. It's all about raisin awareness."
+[1] "What do computers and air conditioners have in common? They both become useless when you open windows."
 
 $status
 [1] 200
@@ -394,29 +394,29 @@ $previous_page
 
 $results
             id
-1  iGJeVKmWDlb
-2   8UnrHe2T0g
-3     daaUfibh
-4  O7haxA5Tfxc
-5  1wkqrcNCljb
-6  AQn3wPKeqrc
-7  0wcFBQfiGBd
-8  TS0gFlqr4ob
-9  0DdaxAX0orc
-10 BQfaxsHBsrc
-11   39Etc2orc
+1     daaUfibh
+2  iGJeVKmWDlb
+3   8UnrHe2T0g
+4  0wcFBQfiGBd
+5  0DdaxAX0orc
+6    39Etc2orc
+7  BQfaxsHBsrc
+8  1wkqrcNCljb
+9  O7haxA5Tfxc
+10 AQn3wPKeqrc
+11 TS0gFlqr4ob
                                                                                   joke
-1                  My cat was just sick on the carpet, I don’t think it’s feline well.
-2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-3            Why was the big cat disqualified from the race? Because it was a cheetah.
-4                                         Where do cats write notes?\r\nScratch Paper!
-5          Did you know that protons have mass? I didn't even know they were catholic.
-6            It was raining cats and dogs the other day. I almost stepped in a poodle.
-7             Did you hear the joke about the wandering nun? She was a roman catholic.
-8                      What do you call a group of disorganized cats? A cat-tastrophe.
-9                         I accidentally took my cats meds last night. Don’t ask meow.
-10                                       What do you call a pile of cats?  A Meowtain.
-11 Why did the man run around his bed? Because he was trying to catch up on his sleep!
+1            Why was the big cat disqualified from the race? Because it was a cheetah.
+2                  My cat was just sick on the carpet, I don’t think it’s feline well.
+3                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+4             Did you hear the joke about the wandering nun? She was a roman catholic.
+5                         I accidentally took my cats meds last night. Don’t ask meow.
+6  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+7                                        What do you call a pile of cats?  A Meowtain.
+8          Did you know that protons have mass? I didn't even know they were catholic.
+9                                         Where do cats write notes?\r\nScratch Paper!
+10           It was raining cats and dogs the other day. I almost stepped in a poodle.
+11                     What do you call a group of disorganized cats? A cat-tastrophe.
 
 $search_term
 [1] "cat"

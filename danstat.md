@@ -106,21 +106,14 @@ about populations and elections:
 
 ``` r
 sub_subjects <- get_subjects(subjects = 1)
-```
-
-``` error
-Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
-! Timeout was reached [api.statbank.dk]:
-OpenSSL SSL_read: Connection reset by peer, errno 104
-```
-
-``` r
 sub_subjects
 ```
 
-``` error
-Error:
-! object 'sub_subjects' not found
+``` output
+  id description active hasSubjects
+1  1      People   TRUE        TRUE
+                                                                                                                                                                                                                                                   subjects
+1 3401, 3407, 3410, 3415, 3412, 3411, 3428, 3409, Population, Households and family matters , Migration, Housing, Health, Democracy, National church, Names, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE
 ```
 
 The result is a bit complicated. The column "subjects" in the resulting dataframe
@@ -132,9 +125,17 @@ column in a dataframe:
 sub_subjects$subjects
 ```
 
-``` error
-Error:
-! object 'sub_subjects' not found
+``` output
+[[1]]
+    id                    description active hasSubjects subjects
+1 3401                     Population   TRUE        TRUE     NULL
+2 3407 Households and family matters    TRUE        TRUE     NULL
+3 3410                      Migration   TRUE        TRUE     NULL
+4 3415                        Housing   TRUE        TRUE     NULL
+5 3412                         Health   TRUE        TRUE     NULL
+6 3411                      Democracy   TRUE        TRUE     NULL
+7 3428                National church   TRUE        TRUE     NULL
+8 3409                          Names   TRUE        TRUE     NULL
 ```
 
 We can continue diving into this, and will end up with subject "20021	Population figures".
@@ -151,21 +152,31 @@ And can use the `get_tables()` function to get information about the tables avai
 
 ``` r
 tables <- get_tables(subjects="20021")
-```
-
-``` error
-Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
-! Timeout was reached [api.statbank.dk]:
-Connection timeout after 10001 ms
-```
-
-``` r
 tables |> head()
 ```
 
-``` error
-Error:
-! object 'tables' not found
+``` output
+        id                                       text   unit
+1   FOLK1A Population at the first day of the quarter Number
+2  FOLK1AM   Population at the first day of the month Number
+3  BEFOLK1                      Population 1. January Number
+4  BEFOLK2                      Population 1. January Number
+5    FOLK3                      Population 1. January Number
+6 FOLK3FOD                      Population 1. January Number
+              updated firstPeriod latestPeriod active
+1 2026-05-11T08:00:00      2008Q1       2026Q2   TRUE
+2 2026-05-11T08:00:00     2021M10      2026M04   TRUE
+3 2026-02-12T08:00:00        1971         2026   TRUE
+4 2026-02-12T08:00:00        1901         2026   TRUE
+5 2026-02-12T08:00:00        2008         2026   TRUE
+6 2026-02-12T08:00:00        2008         2026   TRUE
+                                          variables
+1            region, sex, age, marital status, time
+2                            region, sex, age, time
+3                    sex, age, marital status, time
+4                                    sex, age, time
+5    day of birth, birth month, year of birth, time
+6 day of birth, birth month, country of birth, time
 ```
 
 We have seen this information before, and can now use the `get_table_metadata()` function
@@ -174,21 +185,22 @@ to extract metadata on specific tables:
 
 ``` r
 metadata <- get_table_metadata("FOLK1A", variables_only = TRUE)
-```
-
-``` error
-Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
-! Failure when receiving data from the peer [api.statbank.dk]:
-OpenSSL SSL_read: Connection reset by peer, errno 104
-```
-
-``` r
 metadata
 ```
 
-``` error
-Error:
-! object 'metadata' not found
+``` output
+          id           text elimination  time                     map
+1     OMRÅDE         region        TRUE FALSE denmark_municipality_07
+2        KØN            sex        TRUE FALSE                    <NA>
+3      ALDER            age        TRUE FALSE                    <NA>
+4 CIVILSTAND marital status        TRUE FALSE                    <NA>
+5        Tid           time       FALSE  TRUE                    <NA>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               values
+1                                                                                                                                                                                           000, 084, 101, 147, 155, 185, 165, 151, 153, 157, 159, 161, 163, 167, 169, 183, 173, 175, 187, 201, 240, 210, 250, 190, 270, 260, 217, 219, 223, 230, 400, 411, 085, 253, 259, 350, 265, 269, 320, 376, 316, 326, 360, 370, 306, 329, 330, 340, 336, 390, 083, 420, 430, 440, 482, 410, 480, 450, 461, 479, 492, 530, 561, 563, 607, 510, 621, 540, 550, 573, 575, 630, 580, 082, 710, 766, 615, 707, 727, 730, 741, 740, 746, 706, 751, 657, 661, 756, 665, 760, 779, 671, 791, 081, 810, 813, 860, 849, 825, 846, 773, 840, 787, 820, 851, All Denmark, Region Hovedstaden, Copenhagen, Frederiksberg, Dragør, Tårnby, Albertslund, Ballerup, Brøndby, Gentofte, Gladsaxe, Glostrup, Herlev, Hvidovre, Høje-Taastrup, Ishøj, Lyngby-Taarbæk, Rødovre, Vallensbæk, Allerød, Egedal, Fredensborg, Frederikssund, Furesø, Gribskov, Halsnæs, Helsingør, Hillerød, Hørsholm, Rudersdal, Bornholm, Christiansø, Region Sjælland, Greve, Køge, Lejre, Roskilde, Solrød, Faxe, Guldborgsund, Holbæk, Kalundborg, Lolland, Næstved, Odsherred, Ringsted, Slagelse, Sorø, Stevns, Vordingborg, Region Syddanmark, Assens, Faaborg-Midtfyn, Kerteminde, Langeland, Middelfart, Nordfyns, Nyborg, Odense, Svendborg, Ærø, Billund, Esbjerg, Fanø, Fredericia, Haderslev, Kolding, Sønderborg, Tønder, Varde, Vejen, Vejle, Aabenraa, Region Midtjylland, Favrskov, Hedensted, Horsens, Norddjurs, Odder, Randers, Samsø, Silkeborg, Skanderborg, Syddjurs, Aarhus, Herning, Holstebro, Ikast-Brande, Lemvig, Ringkøbing-Skjern, Skive, Struer, Viborg, Region Nordjylland, Brønderslev, Frederikshavn, Hjørring, Jammerbugt, Læsø, Mariagerfjord, Morsø, Rebild, Thisted, Vesthimmerlands, Aalborg
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        TOT, 1, 2, Total, Men, Women
+3 IALT, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, Age, total, 0 years, 1 year, 2 years, 3 years, 4 years, 5 years, 6 years, 7 years, 8 years, 9 years, 10 years, 11 years, 12 years, 13 years, 14 years, 15 years, 16 years, 17 years, 18 years, 19 years, 20 years, 21 years, 22 years, 23 years, 24 years, 25 years, 26 years, 27 years, 28 years, 29 years, 30 years, 31 years, 32 years, 33 years, 34 years, 35 years, 36 years, 37 years, 38 years, 39 years, 40 years, 41 years, 42 years, 43 years, 44 years, 45 years, 46 years, 47 years, 48 years, 49 years, 50 years, 51 years, 52 years, 53 years, 54 years, 55 years, 56 years, 57 years, 58 years, 59 years, 60 years, 61 years, 62 years, 63 years, 64 years, 65 years, 66 years, 67 years, 68 years, 69 years, 70 years, 71 years, 72 years, 73 years, 74 years, 75 years, 76 years, 77 years, 78 years, 79 years, 80 years, 81 years, 82 years, 83 years, 84 years, 85 years, 86 years, 87 years, 88 years, 89 years, 90 years, 91 years, 92 years, 93 years, 94 years, 95 years, 96 years, 97 years, 98 years, 99 years, 100 years, 101 years, 102 years, 103 years, 104 years, 105 years, 106 years, 107 years, 108 years, 109 years, 110 years, 111 years, 112 years, 113 years, 114 years, 115 years, 116 years, 117 years, 118 years, 119 years, 120 years, 121 years, 122 years, 123 years, 124 years, 125 years
+4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         TOT, U, G, E, F, Total, Never married, Married/separated, Widowed, Divorced
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2026K1, 2026K2, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2
 ```
 
 We use the `variables_only = TRUE` to remove eg. contact information to Statistics Denmark.
@@ -203,9 +215,14 @@ metadata |>
   pull(values)
 ```
 
-``` error
-Error:
-! object 'metadata' not found
+``` output
+[[1]]
+   id              text
+1 TOT             Total
+2   U     Never married
+3   G Married/separated
+4   E           Widowed
+5   F          Divorced
 ```
 
 We use the slice function from tidyverse to pull out the fourth row of the 
@@ -223,9 +240,14 @@ metadata |>
   head()
 ```
 
-``` error
-Error:
-! object 'metadata' not found
+``` output
+   id               text
+1 000        All Denmark
+2 084 Region Hovedstaden
+3 101         Copenhagen
+4 147      Frederiksberg
+5 155             Dragør
+6 185             Tårnby
 ```
 Here we see the individual municipalities in Denmark. 
 
@@ -255,10 +277,15 @@ And now we can call the `get_data()` function and retrieve data:
 data <- get_data(table_id = "FOLK1A", variables = variables)
 ```
 
-``` error
-Error in `curl::curl_fetch_memory()` at httr/R/write-function.R:78:3:
-! Failure when receiving data from the peer [api.statbank.dk]:
-OpenSSL SSL_read: Connection reset by peer, errno 104
+``` output
+Rows: 31080 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (3): OMRÅDE, CIVILSTAND, TID
+dbl (1): INDHOLD
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 It takes a short moment. But now we have a dataframe containing the data we 
@@ -270,13 +297,15 @@ head(data)
 ```
 
 ``` output
-                                                                            
-1 function (..., list = character(), package = NULL, lib.loc = NULL,        
-2     verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) 
-3 {                                                                         
-4     fileExt <- function(x) {                                              
-5         db <- grepl("\\\\.[^.]+\\\\.(gz|bz2|xz)$", x)                     
-6         ans <- sub(".*\\\\.", "", x)                                      
+# A tibble: 6 × 4
+  OMRÅDE      CIVILSTAND    TID    INDHOLD
+  <chr>       <chr>         <chr>    <dbl>
+1 All Denmark Never married 2008Q1 2552700
+2 All Denmark Never married 2008Q2 2563134
+3 All Denmark Never married 2008Q3 2564705
+4 All Denmark Never married 2008Q4 2568255
+5 All Denmark Never married 2009Q1 2575185
+6 All Denmark Never married 2009Q2 2584993
 ```
 
 
