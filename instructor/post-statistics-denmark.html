@@ -309,7 +309,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Using POST</h1>
-        <p>Last updated on 2026-06-08 |
+        <p>Last updated on 2026-07-07 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/post-statistics-denmark.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -469,7 +469,7 @@ and a body containing what we want returned.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://api.statbank.dk/v1/subjects]
-  Date: 2026-06-08 10:05
+  Date: 2026-07-07 01:51
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B</code></pre>
@@ -671,27 +671,27 @@ under a subject:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>        id                                       text   unit
-1   FOLK1A Population at the first day of the quarter Number
-2  FOLK1AM   Population at the first day of the month Number
-3  BEFOLK1                      Population 1. January Number
-4  BEFOLK2                      Population 1. January Number
-5    FOLK3                      Population 1. January Number
-6 FOLK3FOD                      Population 1. January Number
-              updated firstPeriod latestPeriod active
-1 2026-05-11T08:00:00      2008Q1       2026Q2   TRUE
-2 2026-05-11T08:00:00     2021M10      2026M04   TRUE
-3 2026-02-12T08:00:00        1971         2026   TRUE
-4 2026-02-12T08:00:00        1901         2026   TRUE
-5 2026-02-12T08:00:00        2008         2026   TRUE
-6 2026-02-12T08:00:00        2008         2026   TRUE
-                                          variables
-1            region, sex, age, marital status, time
-2                            region, sex, age, time
-3                    sex, age, marital status, time
-4                                    sex, age, time
-5    day of birth, birth month, year of birth, time
-6 day of birth, birth month, country of birth, time</code></pre>
+<pre class="output" tabindex="0"><code>       id                                       text   unit             updated
+1  FOLK1A Population at the first day of the quarter Number 2026-05-11T08:00:00
+2 FOLK1AM   Population at the first day of the month Number 2026-06-10T08:00:00
+3 BEFOLK3                      Population 1. January Number 2026-07-01T08:00:00
+4 BEFOLK1                      Population 1. January Number 2026-02-12T08:00:00
+5 BEFOLK2                      Population 1. January Number 2026-02-12T08:00:00
+6   FOLK3                      Population 1. January Number 2026-02-12T08:00:00
+  firstPeriod latestPeriod active
+1      2008Q1       2026Q2   TRUE
+2     2021M10      2026M05   TRUE
+3        2008         2026   TRUE
+4        1971         2026   TRUE
+5        1901         2026   TRUE
+6        2008         2026   TRUE
+                                       variables
+1         region, sex, age, marital status, time
+2                         region, sex, age, time
+3                         region, sex, age, time
+4                 sex, age, marital status, time
+5                                 sex, age, time
+6 day of birth, birth month, year of birth, time</code></pre>
 </div>
 <p>There are 21 tables under this subject. Let us see what information
 we can get about table “FOLK1A”:</p>
@@ -962,8 +962,8 @@ any links that you are not going to use.
   "url": "https://KUBDatalab.github.io/R-api/instructor/post-statistics-denmark.html",
   "identifier": "https://KUBDatalab.github.io/R-api/instructor/post-statistics-denmark.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2026-06-08",
-  "datePublished": "2026-06-30"
+  "dateModified": "2026-07-07",
+  "datePublished": "2026-07-07"
 }
 
   </script><script>
