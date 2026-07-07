@@ -46,10 +46,10 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-06-08 10:05
+  Date: 2026-07-07 01:51
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.6 kB
+  Size: 11.7 kB
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-06-08 10:05
+  Date: 2026-07-07 01:51
   Status: 200
   Content-Type: text/plain
-  Size: 64 B
+  Size: 102 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "What did the calculator say to the student? You can count on me."
+[1] "Dad died because he couldn't remember his blood type. I will never forget his last words. Be positive."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-06-08 10:05
+  Date: 2026-07-07 01:51
   Status: 200
   Content-Type: application/json
-  Size: 146 B
-{"id":"EYoz51DtHtc","joke":"What do computers and air conditioners have in co...
+  Size: 89 B
+{"id":"cUnWLRZ01wc","joke":"What is the leading cause of dry skin? Towels","s...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "EYoz51DtHtc"
+[1] "cUnWLRZ01wc"
 
 $joke
-[1] "What do computers and air conditioners have in common? They both become useless when you open windows."
+[1] "What is the leading cause of dry skin? Towels"
 
 $status
 [1] 200
@@ -261,10 +261,10 @@ $results[[2]]$joke
 
 $results[[3]]
 $results[[3]]$id
-[1] "lyk3EIBQfxc"
+[1] "EBQfiyXD5ob"
 
 $results[[3]]$joke
-[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
+[1] "what do you call a dog that can do magic tricks? a labracadabrador"
 
 
 
@@ -311,28 +311,28 @@ $results
             id
 1  YvkV8xXnjyd
 2  82wHlbaapzd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6  GtH6E6UD5Ed
-7   obhFBljb2g
-8  89MZLmWnWvc
-9   71wsPKeF6h
-10 R7UfaahVfFd
+3  EBQfiyXD5ob
+4  GtH6E6UD5Ed
+5   obhFBljb2g
+6  89MZLmWnWvc
+7   71wsPKeF6h
+8  R7UfaahVfFd
+9  lyk3EIBQfxc
+10 DIeaUDlbUDd
 11 AQn3wPKeqrc
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
 1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
 2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-7                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-8                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-9                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
-10                                                                                                                                                                                    My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+3                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+4                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+7                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+8                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+9                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+10                                                                                                                                                                                                                         “My Dog has no nose.” “How does he smell?” “Awful”
 11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -394,29 +394,29 @@ $previous_page
 
 $results
             id
-1     daaUfibh
-2  iGJeVKmWDlb
-3   8UnrHe2T0g
-4  0wcFBQfiGBd
-5  0DdaxAX0orc
-6    39Etc2orc
-7  BQfaxsHBsrc
-8  1wkqrcNCljb
-9  O7haxA5Tfxc
-10 AQn3wPKeqrc
-11 TS0gFlqr4ob
+1  iGJeVKmWDlb
+2   8UnrHe2T0g
+3     daaUfibh
+4  TS0gFlqr4ob
+5  O7haxA5Tfxc
+6  0wcFBQfiGBd
+7  0DdaxAX0orc
+8    39Etc2orc
+9  BQfaxsHBsrc
+10 1wkqrcNCljb
+11 AQn3wPKeqrc
                                                                                   joke
-1            Why was the big cat disqualified from the race? Because it was a cheetah.
-2                  My cat was just sick on the carpet, I don’t think it’s feline well.
-3                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-4             Did you hear the joke about the wandering nun? She was a roman catholic.
-5                         I accidentally took my cats meds last night. Don’t ask meow.
-6  Why did the man run around his bed? Because he was trying to catch up on his sleep!
-7                                        What do you call a pile of cats?  A Meowtain.
-8          Did you know that protons have mass? I didn't even know they were catholic.
-9                                         Where do cats write notes?\r\nScratch Paper!
-10           It was raining cats and dogs the other day. I almost stepped in a poodle.
-11                     What do you call a group of disorganized cats? A cat-tastrophe.
+1                  My cat was just sick on the carpet, I don’t think it’s feline well.
+2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+3            Why was the big cat disqualified from the race? Because it was a cheetah.
+4                      What do you call a group of disorganized cats? A cat-tastrophe.
+5                                         Where do cats write notes?\r\nScratch Paper!
+6             Did you hear the joke about the wandering nun? She was a roman catholic.
+7                         I accidentally took my cats meds last night. Don’t ask meow.
+8  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+9                                        What do you call a pile of cats?  A Meowtain.
+10         Did you know that protons have mass? I didn't even know they were catholic.
+11           It was raining cats and dogs the other day. I almost stepped in a poodle.
 
 $search_term
 [1] "cat"

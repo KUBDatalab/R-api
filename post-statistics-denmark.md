@@ -142,7 +142,7 @@ result
 
 ``` output
 Response [https://api.statbank.dk/v1/subjects]
-  Date: 2026-06-08 10:05
+  Date: 2026-07-07 01:51
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B
@@ -324,27 +324,27 @@ data |> head()
 ```
 
 ``` output
-        id                                       text   unit
-1   FOLK1A Population at the first day of the quarter Number
-2  FOLK1AM   Population at the first day of the month Number
-3  BEFOLK1                      Population 1. January Number
-4  BEFOLK2                      Population 1. January Number
-5    FOLK3                      Population 1. January Number
-6 FOLK3FOD                      Population 1. January Number
-              updated firstPeriod latestPeriod active
-1 2026-05-11T08:00:00      2008Q1       2026Q2   TRUE
-2 2026-05-11T08:00:00     2021M10      2026M04   TRUE
-3 2026-02-12T08:00:00        1971         2026   TRUE
-4 2026-02-12T08:00:00        1901         2026   TRUE
-5 2026-02-12T08:00:00        2008         2026   TRUE
-6 2026-02-12T08:00:00        2008         2026   TRUE
-                                          variables
-1            region, sex, age, marital status, time
-2                            region, sex, age, time
-3                    sex, age, marital status, time
-4                                    sex, age, time
-5    day of birth, birth month, year of birth, time
-6 day of birth, birth month, country of birth, time
+       id                                       text   unit             updated
+1  FOLK1A Population at the first day of the quarter Number 2026-05-11T08:00:00
+2 FOLK1AM   Population at the first day of the month Number 2026-06-10T08:00:00
+3 BEFOLK3                      Population 1. January Number 2026-07-01T08:00:00
+4 BEFOLK1                      Population 1. January Number 2026-02-12T08:00:00
+5 BEFOLK2                      Population 1. January Number 2026-02-12T08:00:00
+6   FOLK3                      Population 1. January Number 2026-02-12T08:00:00
+  firstPeriod latestPeriod active
+1      2008Q1       2026Q2   TRUE
+2     2021M10      2026M05   TRUE
+3        2008         2026   TRUE
+4        1971         2026   TRUE
+5        1901         2026   TRUE
+6        2008         2026   TRUE
+                                       variables
+1         region, sex, age, marital status, time
+2                         region, sex, age, time
+3                         region, sex, age, time
+4                 sex, age, marital status, time
+5                                 sex, age, time
+6 day of birth, birth month, year of birth, time
 ```
 
 There are 21 tables under this subject. Let us see what information we can get about table "FOLK1A":
