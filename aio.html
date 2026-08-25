@@ -352,7 +352,7 @@
         
 <section id="aio-api-in-general"><p>Content from <a href="api-in-general.html">What is an API?</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/api-in-general.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -496,7 +496,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-getting-data"><p>Content from <a href="getting-data.html">GETting data</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/getting-data.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -573,10 +573,10 @@ actually handles the behind-the-scenes-stuff for us. The library
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-07-07 01:51
+  Date: 2026-08-25 00:34
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.7 kB
+  Size: 11.8 kB
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -615,10 +615,10 @@ we really want a response in just text:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-07-07 01:51
+  Date: 2026-08-25 00:34
   Status: 200
   Content-Type: text/plain
-  Size: 102 B</code></pre>
+  Size: 60 B</code></pre>
 </div>
 <p>We still get the response from the server, telling us that Status is
 200, and everything is OK. But where is our dad-joke?</p>
@@ -639,7 +639,7 @@ from <code>httr</code> to extract it:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] "Dad died because he couldn't remember his blood type. I will never forget his last words. Be positive."</code></pre>
+<pre class="output" tabindex="0"><code>[1] "Why are mummys scared of vacation? They're afraid to unwind."</code></pre>
 </div>
 <p>There is a little warning about the encoding of the string. But now
 we have a dad-joke!</p>
@@ -736,11 +736,11 @@ header:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-07-07 01:51
+  Date: 2026-08-25 00:34
   Status: 200
   Content-Type: application/json
-  Size: 89 B
-{"id":"cUnWLRZ01wc","joke":"What is the leading cause of dry skin? Towels","s...</code></pre>
+  Size: 118 B
+{"id":"apjyd21DQuc","joke":"I got an A on my origami assignment when I turned...</code></pre>
 </div>
 <p>Again - everything is nice and 200 = OK.</p>
 <p>We also see a truncated version of the actual joke.</p>
@@ -756,10 +756,10 @@ content:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>$id
-[1] "cUnWLRZ01wc"
+[1] "apjyd21DQuc"
 
 $joke
-[1] "What is the leading cause of dry skin? Towels"
+[1] "I got an A on my origami assignment when I turned my paper into my teacher"
 
 $status
 [1] 200</code></pre>
@@ -844,10 +844,10 @@ $results[[2]]$joke
 
 $results[[3]]
 $results[[3]]$id
-[1] "EBQfiyXD5ob"
+[1] "R7UfaahVfFd"
 
 $results[[3]]$joke
-[1] "what do you call a dog that can do magic tricks? a labracadabrador"
+[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
 
 
 
@@ -896,30 +896,30 @@ $previous_page
 
 $results
             id
-1  YvkV8xXnjyd
-2  82wHlbaapzd
-3  EBQfiyXD5ob
-4  GtH6E6UD5Ed
-5   obhFBljb2g
-6  89MZLmWnWvc
-7   71wsPKeF6h
-8  R7UfaahVfFd
-9  lyk3EIBQfxc
-10 DIeaUDlbUDd
+1  82wHlbaapzd
+2  YvkV8xXnjyd
+3  lyk3EIBQfxc
+4  DIeaUDlbUDd
+5  EBQfiyXD5ob
+6   obhFBljb2g
+7  89MZLmWnWvc
+8  GtH6E6UD5Ed
+9  R7UfaahVfFd
+10  71wsPKeF6h
 11 AQn3wPKeqrc
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
-1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
-2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-3                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-4                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-6                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-7                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
-8                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-9                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-10                                                                                                                                                                                                                         “My Dog has no nose.” “How does he smell?” “Awful”
+1  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
+2                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+6                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+7                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
+8                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
 11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -964,7 +964,7 @@ and extract the content.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>We’ve done this earlier, and just have to change “dog” to “cat”:</p>
 <div class="codewrapper sourceCode" id="cb20">
@@ -997,27 +997,27 @@ $previous_page
 
 $results
             id
-1  iGJeVKmWDlb
-2   8UnrHe2T0g
-3     daaUfibh
+1     daaUfibh
+2  iGJeVKmWDlb
+3   8UnrHe2T0g
 4  TS0gFlqr4ob
-5  O7haxA5Tfxc
-6  0wcFBQfiGBd
-7  0DdaxAX0orc
-8    39Etc2orc
-9  BQfaxsHBsrc
+5  0wcFBQfiGBd
+6  0DdaxAX0orc
+7    39Etc2orc
+8  BQfaxsHBsrc
+9  O7haxA5Tfxc
 10 1wkqrcNCljb
 11 AQn3wPKeqrc
                                                                                   joke
-1                  My cat was just sick on the carpet, I don’t think it’s feline well.
-2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-3            Why was the big cat disqualified from the race? Because it was a cheetah.
+1            Why was the big cat disqualified from the race? Because it was a cheetah.
+2                  My cat was just sick on the carpet, I don’t think it’s feline well.
+3                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
 4                      What do you call a group of disorganized cats? A cat-tastrophe.
-5                                         Where do cats write notes?\r\nScratch Paper!
-6             Did you hear the joke about the wandering nun? She was a roman catholic.
-7                         I accidentally took my cats meds last night. Don’t ask meow.
-8  Why did the man run around his bed? Because he was trying to catch up on his sleep!
-9                                        What do you call a pile of cats?  A Meowtain.
+5             Did you hear the joke about the wandering nun? She was a roman catholic.
+6                         I accidentally took my cats meds last night. Don’t ask meow.
+7  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+8                                        What do you call a pile of cats?  A Meowtain.
+9                                         Where do cats write notes?\r\nScratch Paper!
 10         Did you know that protons have mass? I didn't even know they were catholic.
 11           It was raining cats and dogs the other day. I almost stepped in a poodle.
 
@@ -1058,7 +1058,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-post-statistics-denmark"><p>Content from <a href="post-statistics-denmark.html">Using POST</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/post-statistics-denmark.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1218,7 +1218,7 @@ and a body containing what we want returned.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://api.statbank.dk/v1/subjects]
-  Date: 2026-07-07 01:51
+  Date: 2026-08-25 00:34
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B</code></pre>
@@ -1421,15 +1421,15 @@ under a subject:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>       id                                       text   unit             updated
-1  FOLK1A Population at the first day of the quarter Number 2026-05-11T08:00:00
-2 FOLK1AM   Population at the first day of the month Number 2026-06-10T08:00:00
+1  FOLK1A Population at the first day of the quarter Number 2026-08-10T08:00:00
+2 FOLK1AM   Population at the first day of the month Number 2026-08-10T08:00:00
 3 BEFOLK3                      Population 1. January Number 2026-07-01T08:00:00
 4 BEFOLK1                      Population 1. January Number 2026-02-12T08:00:00
 5 BEFOLK2                      Population 1. January Number 2026-02-12T08:00:00
 6   FOLK3                      Population 1. January Number 2026-02-12T08:00:00
   firstPeriod latestPeriod active
-1      2008Q1       2026Q2   TRUE
-2     2021M10      2026M05   TRUE
+1      2008Q1       2026Q3   TRUE
+2     2021M10      2026M07   TRUE
 3        2008         2026   TRUE
 4        1971         2026   TRUE
 5        1901         2026   TRUE
@@ -1480,7 +1480,7 @@ $suppressedDataValue
 [1] "0"
 
 $updated
-[1] "2026-05-11T08:00:00"
+[1] "2026-08-10T08:00:00"
 
 $active
 [1] TRUE
@@ -1512,7 +1512,7 @@ $variables
 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        TOT, 1, 2, Total, Men, Women
 3 IALT, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, Age, total, 0 years, 1 year, 2 years, 3 years, 4 years, 5 years, 6 years, 7 years, 8 years, 9 years, 10 years, 11 years, 12 years, 13 years, 14 years, 15 years, 16 years, 17 years, 18 years, 19 years, 20 years, 21 years, 22 years, 23 years, 24 years, 25 years, 26 years, 27 years, 28 years, 29 years, 30 years, 31 years, 32 years, 33 years, 34 years, 35 years, 36 years, 37 years, 38 years, 39 years, 40 years, 41 years, 42 years, 43 years, 44 years, 45 years, 46 years, 47 years, 48 years, 49 years, 50 years, 51 years, 52 years, 53 years, 54 years, 55 years, 56 years, 57 years, 58 years, 59 years, 60 years, 61 years, 62 years, 63 years, 64 years, 65 years, 66 years, 67 years, 68 years, 69 years, 70 years, 71 years, 72 years, 73 years, 74 years, 75 years, 76 years, 77 years, 78 years, 79 years, 80 years, 81 years, 82 years, 83 years, 84 years, 85 years, 86 years, 87 years, 88 years, 89 years, 90 years, 91 years, 92 years, 93 years, 94 years, 95 years, 96 years, 97 years, 98 years, 99 years, 100 years, 101 years, 102 years, 103 years, 104 years, 105 years, 106 years, 107 years, 108 years, 109 years, 110 years, 111 years, 112 years, 113 years, 114 years, 115 years, 116 years, 117 years, 118 years, 119 years, 120 years, 121 years, 122 years, 123 years, 124 years, 125 years
 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         TOT, U, G, E, F, Total, Never married, Married/separated, Widowed, Divorced
-5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2026K1, 2026K2, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2</code></pre>
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2026K1, 2026K2, 2026K3, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2, 2026Q3</code></pre>
 </div>
 <p>This is a bit more complicated. We are told that:</p>
 <ol style="list-style-type: decimal">
@@ -1602,7 +1602,7 @@ generated.</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code># A tibble: 31,080 × 4
+<pre class="output" tabindex="0"><code># A tibble: 31,500 × 4
    OMRÅDE      CIVILSTAND    TID    INDHOLD
    &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;    &lt;dbl&gt;
  1 All Denmark Never married 2008Q1 2552700
@@ -1615,7 +1615,7 @@ generated.</code></pre>
  8 All Denmark Never married 2009Q4 2588198
  9 All Denmark Never married 2010Q1 2593172
 10 All Denmark Never married 2010Q2 2604129
-# ℹ 31,070 more rows</code></pre>
+# ℹ 31,490 more rows</code></pre>
 </div>
 <p>Voila! We have a dataframe with information about how many persons in
 Denmark were married (or not) at different points in time.</p>
@@ -1657,7 +1657,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-danstat"><p>Content from <a href="danstat.html">What about danstat?</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/danstat.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1823,15 +1823,15 @@ about the tables available:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>       id                                       text   unit             updated
-1  FOLK1A Population at the first day of the quarter Number 2026-05-11T08:00:00
-2 FOLK1AM   Population at the first day of the month Number 2026-06-10T08:00:00
+1  FOLK1A Population at the first day of the quarter Number 2026-08-10T08:00:00
+2 FOLK1AM   Population at the first day of the month Number 2026-08-10T08:00:00
 3 BEFOLK3                      Population 1. January Number 2026-07-01T08:00:00
 4 BEFOLK1                      Population 1. January Number 2026-02-12T08:00:00
 5 BEFOLK2                      Population 1. January Number 2026-02-12T08:00:00
 6   FOLK3                      Population 1. January Number 2026-02-12T08:00:00
   firstPeriod latestPeriod active
-1      2008Q1       2026Q2   TRUE
-2     2021M10      2026M05   TRUE
+1      2008Q1       2026Q3   TRUE
+2     2021M10      2026M07   TRUE
 3        2008         2026   TRUE
 4        1971         2026   TRUE
 5        1901         2026   TRUE
@@ -1868,7 +1868,7 @@ specific tables:</p>
 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        TOT, 1, 2, Total, Men, Women
 3 IALT, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, Age, total, 0 years, 1 year, 2 years, 3 years, 4 years, 5 years, 6 years, 7 years, 8 years, 9 years, 10 years, 11 years, 12 years, 13 years, 14 years, 15 years, 16 years, 17 years, 18 years, 19 years, 20 years, 21 years, 22 years, 23 years, 24 years, 25 years, 26 years, 27 years, 28 years, 29 years, 30 years, 31 years, 32 years, 33 years, 34 years, 35 years, 36 years, 37 years, 38 years, 39 years, 40 years, 41 years, 42 years, 43 years, 44 years, 45 years, 46 years, 47 years, 48 years, 49 years, 50 years, 51 years, 52 years, 53 years, 54 years, 55 years, 56 years, 57 years, 58 years, 59 years, 60 years, 61 years, 62 years, 63 years, 64 years, 65 years, 66 years, 67 years, 68 years, 69 years, 70 years, 71 years, 72 years, 73 years, 74 years, 75 years, 76 years, 77 years, 78 years, 79 years, 80 years, 81 years, 82 years, 83 years, 84 years, 85 years, 86 years, 87 years, 88 years, 89 years, 90 years, 91 years, 92 years, 93 years, 94 years, 95 years, 96 years, 97 years, 98 years, 99 years, 100 years, 101 years, 102 years, 103 years, 104 years, 105 years, 106 years, 107 years, 108 years, 109 years, 110 years, 111 years, 112 years, 113 years, 114 years, 115 years, 116 years, 117 years, 118 years, 119 years, 120 years, 121 years, 122 years, 123 years, 124 years, 125 years
 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         TOT, U, G, E, F, Total, Never married, Married/separated, Widowed, Divorced
-5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2026K1, 2026K2, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2</code></pre>
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2008K1, 2008K2, 2008K3, 2008K4, 2009K1, 2009K2, 2009K3, 2009K4, 2010K1, 2010K2, 2010K3, 2010K4, 2011K1, 2011K2, 2011K3, 2011K4, 2012K1, 2012K2, 2012K3, 2012K4, 2013K1, 2013K2, 2013K3, 2013K4, 2014K1, 2014K2, 2014K3, 2014K4, 2015K1, 2015K2, 2015K3, 2015K4, 2016K1, 2016K2, 2016K3, 2016K4, 2017K1, 2017K2, 2017K3, 2017K4, 2018K1, 2018K2, 2018K3, 2018K4, 2019K1, 2019K2, 2019K3, 2019K4, 2020K1, 2020K2, 2020K3, 2020K4, 2021K1, 2021K2, 2021K3, 2021K4, 2022K1, 2022K2, 2022K3, 2022K4, 2023K1, 2023K2, 2023K3, 2023K4, 2024K1, 2024K2, 2024K3, 2024K4, 2025K1, 2025K2, 2025K3, 2025K4, 2026K1, 2026K2, 2026K3, 2008Q1, 2008Q2, 2008Q3, 2008Q4, 2009Q1, 2009Q2, 2009Q3, 2009Q4, 2010Q1, 2010Q2, 2010Q3, 2010Q4, 2011Q1, 2011Q2, 2011Q3, 2011Q4, 2012Q1, 2012Q2, 2012Q3, 2012Q4, 2013Q1, 2013Q2, 2013Q3, 2013Q4, 2014Q1, 2014Q2, 2014Q3, 2014Q4, 2015Q1, 2015Q2, 2015Q3, 2015Q4, 2016Q1, 2016Q2, 2016Q3, 2016Q4, 2017Q1, 2017Q2, 2017Q3, 2017Q4, 2018Q1, 2018Q2, 2018Q3, 2018Q4, 2019Q1, 2019Q2, 2019Q3, 2019Q4, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1, 2021Q2, 2021Q3, 2021Q4, 2022Q1, 2022Q2, 2022Q3, 2022Q4, 2023Q1, 2023Q2, 2023Q3, 2023Q4, 2024Q1, 2024Q2, 2024Q3, 2024Q4, 2025Q1, 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2, 2026Q3</code></pre>
 </div>
 <p>We use the <code>variables_only = TRUE</code> to remove eg. contact
 information to Statistics Denmark.</p>
@@ -1946,7 +1946,7 @@ data:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Rows: 31080 Columns: 4
+<pre class="output" tabindex="0"><code>Rows: 31500 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ";"
 chr (3): OMRÅDE, CIVILSTAND, TID
@@ -1996,7 +1996,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-note-on-time"><p>Content from <a href="note-on-time.html">A short note on time</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/note-on-time.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2282,7 +2282,7 @@ any links that you are not going to use.
 </div>
 </div></section><section id="aio-whats-next"><p>Content from <a href="whats-next.html">Whats next?</a></p>
 <hr>
-<p>Last updated on 2026-07-07 |
+<p>Last updated on 2026-08-25 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/whats-next.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2395,8 +2395,8 @@ University Library</a></li>
   "url": "https://KUBDatalab.github.io/R-api/aio.html",
   "identifier": "https://KUBDatalab.github.io/R-api/aio.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2026-08-18",
-  "datePublished": "2026-08-18"
+  "dateModified": "2026-08-25",
+  "datePublished": "2026-08-25"
 }
 
   </script><script>
