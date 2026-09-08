@@ -352,7 +352,7 @@
         
 <section id="aio-api-in-general"><p>Content from <a href="api-in-general.html">What is an API?</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/api-in-general.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -496,7 +496,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-getting-data"><p>Content from <a href="getting-data.html">GETting data</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/getting-data.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -573,10 +573,10 @@ actually handles the behind-the-scenes-stuff for us. The library
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-08-25 00:34
+  Date: 2026-09-08 03:06
   Status: 200
   Content-Type: text/html; charset=utf-8
-  Size: 11.8 kB
+  Size: 11.6 kB
 &lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -615,10 +615,10 @@ we really want a response in just text:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-08-25 00:34
+  Date: 2026-09-08 03:06
   Status: 200
   Content-Type: text/plain
-  Size: 60 B</code></pre>
+  Size: 81 B</code></pre>
 </div>
 <p>We still get the response from the server, telling us that Status is
 200, and everything is OK. But where is our dad-joke?</p>
@@ -639,7 +639,7 @@ from <code>httr</code> to extract it:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[1] "Why are mummys scared of vacation? They're afraid to unwind."</code></pre>
+<pre class="output" tabindex="0"><code>[1] "What's the worst thing about ancient history class? The teachers tend to Babylon."</code></pre>
 </div>
 <p>There is a little warning about the encoding of the string. But now
 we have a dad-joke!</p>
@@ -736,11 +736,11 @@ header:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://icanhazdadjoke.com/]
-  Date: 2026-08-25 00:34
+  Date: 2026-09-08 03:06
   Status: 200
   Content-Type: application/json
-  Size: 118 B
-{"id":"apjyd21DQuc","joke":"I got an A on my origami assignment when I turned...</code></pre>
+  Size: 93 B
+{"id":"82LBXSfaFlb","joke":"What kind of tree fits in your hand? A palm tree!...</code></pre>
 </div>
 <p>Again - everything is nice and 200 = OK.</p>
 <p>We also see a truncated version of the actual joke.</p>
@@ -756,10 +756,10 @@ content:</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>$id
-[1] "apjyd21DQuc"
+[1] "82LBXSfaFlb"
 
 $joke
-[1] "I got an A on my origami assignment when I turned my paper into my teacher"
+[1] "What kind of tree fits in your hand? A palm tree!"
 
 $status
 [1] 200</code></pre>
@@ -828,26 +828,26 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[1]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[2]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[3]]
 $results[[3]]$id
-[1] "R7UfaahVfFd"
+[1] "DIeaUDlbUDd"
 
 $results[[3]]$joke
-[1] "My dog used to chase people on a bike a lot. It got so bad I had to take his bike away."
+[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
 
 
 
@@ -896,30 +896,30 @@ $previous_page
 
 $results
             id
-1  82wHlbaapzd
-2  YvkV8xXnjyd
-3  lyk3EIBQfxc
-4  DIeaUDlbUDd
-5  EBQfiyXD5ob
-6   obhFBljb2g
-7  89MZLmWnWvc
-8  GtH6E6UD5Ed
-9  R7UfaahVfFd
-10  71wsPKeF6h
+1  YvkV8xXnjyd
+2  82wHlbaapzd
+3  R7UfaahVfFd
+4   71wsPKeF6h
+5   obhFBljb2g
+6  lyk3EIBQfxc
+7  DIeaUDlbUDd
+8  EBQfiyXD5ob
+9  GtH6E6UD5Ed
+10 89MZLmWnWvc
 11 AQn3wPKeqrc
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
-1  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-2                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
-3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
-4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
-5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
-6                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
-7                                                                                                                                                I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
-8                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
-9                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
-10                                                                                                                                                                                                                          What did the dog say to the two trees? Bark bark.
+1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
+3                                                                                                                                                                                     My dog used to chase people on a bike a lot. It got so bad I had to take his bike away.
+4                                                                                                                                                                                                                           What did the dog say to the two trees? Bark bark.
+5                                                                                                                                                                                     I adopted my dog from a blacksmith. As soon as we got home he made a bolt for the door.
+6                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
+7                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
+8                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
+9                                                                                                                                                                                                What kind of dog lives in a particle accelerator? A Fermilabrador Retriever.
+10                                                                                                                                               I can't take my dog to the pond anymore because the ducks keep attacking him. That's what I get for buying a pure bread dog.
 11                                                                                                                                                                                                  It was raining cats and dogs the other day. I almost stepped in a poodle.
 12                                                                                                                                              At the boxing match, the dad got into the popcorn line and the line for hot dogs, but he wanted to stay out of the punchline.
 13                                                                                                                                                                                            What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
@@ -964,7 +964,7 @@ and extract the content.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>We’ve done this earlier, and just have to change “dog” to “cat”:</p>
 <div class="codewrapper sourceCode" id="cb20">
@@ -997,29 +997,29 @@ $previous_page
 
 $results
             id
-1     daaUfibh
-2  iGJeVKmWDlb
-3   8UnrHe2T0g
-4  TS0gFlqr4ob
+1   8UnrHe2T0g
+2     daaUfibh
+3  iGJeVKmWDlb
+4  AQn3wPKeqrc
 5  0wcFBQfiGBd
-6  0DdaxAX0orc
-7    39Etc2orc
+6  TS0gFlqr4ob
+7  0DdaxAX0orc
 8  BQfaxsHBsrc
-9  O7haxA5Tfxc
-10 1wkqrcNCljb
-11 AQn3wPKeqrc
+9    39Etc2orc
+10 O7haxA5Tfxc
+11 1wkqrcNCljb
                                                                                   joke
-1            Why was the big cat disqualified from the race? Because it was a cheetah.
-2                  My cat was just sick on the carpet, I don’t think it’s feline well.
-3                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-4                      What do you call a group of disorganized cats? A cat-tastrophe.
+1                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+2            Why was the big cat disqualified from the race? Because it was a cheetah.
+3                  My cat was just sick on the carpet, I don’t think it’s feline well.
+4            It was raining cats and dogs the other day. I almost stepped in a poodle.
 5             Did you hear the joke about the wandering nun? She was a roman catholic.
-6                         I accidentally took my cats meds last night. Don’t ask meow.
-7  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+6                      What do you call a group of disorganized cats? A cat-tastrophe.
+7                         I accidentally took my cats meds last night. Don’t ask meow.
 8                                        What do you call a pile of cats?  A Meowtain.
-9                                         Where do cats write notes?\r\nScratch Paper!
-10         Did you know that protons have mass? I didn't even know they were catholic.
-11           It was raining cats and dogs the other day. I almost stepped in a poodle.
+9  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+10                                        Where do cats write notes?\r\nScratch Paper!
+11         Did you know that protons have mass? I didn't even know they were catholic.
 
 $search_term
 [1] "cat"
@@ -1058,7 +1058,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-post-statistics-denmark"><p>Content from <a href="post-statistics-denmark.html">Using POST</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/post-statistics-denmark.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1218,7 +1218,7 @@ and a body containing what we want returned.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Response [https://api.statbank.dk/v1/subjects]
-  Date: 2026-08-25 00:34
+  Date: 2026-09-08 03:06
   Status: 200
   Content-Type: text/json; charset=utf-8
   Size: 903 B</code></pre>
@@ -1657,7 +1657,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-danstat"><p>Content from <a href="danstat.html">What about danstat?</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/danstat.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1996,7 +1996,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-note-on-time"><p>Content from <a href="note-on-time.html">A short note on time</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/note-on-time.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2282,7 +2282,7 @@ any links that you are not going to use.
 </div>
 </div></section><section id="aio-whats-next"><p>Content from <a href="whats-next.html">Whats next?</a></p>
 <hr>
-<p>Last updated on 2026-08-25 |
+<p>Last updated on 2026-09-08 |
 
         <a href="https://github.com/KUBDatalab/R-api/edit/main/episodes/whats-next.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2372,7 +2372,7 @@ University Library</a></li>
         <p>Materials licensed under <a href="LICENSE.html">CC BY-NC-SA 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.21.0" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.1.2" class="external-link">varnish (1.1.2)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.2)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -2395,8 +2395,8 @@ University Library</a></li>
   "url": "https://KUBDatalab.github.io/R-api/aio.html",
   "identifier": "https://KUBDatalab.github.io/R-api/aio.html",
   "dateCreated": "2024-07-29",
-  "dateModified": "2026-09-01",
-  "datePublished": "2026-09-01"
+  "dateModified": "2026-09-08",
+  "datePublished": "2026-09-08"
 }
 
   </script><script>
