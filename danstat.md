@@ -158,14 +158,14 @@ tables |> head()
 ``` output
        id                                       text   unit             updated
 1  FOLK1A Population at the first day of the quarter Number 2026-08-10T08:00:00
-2 FOLK1AM   Population at the first day of the month Number 2026-08-10T08:00:00
+2 FOLK1AM   Population at the first day of the month Number 2026-09-10T08:00:00
 3 BEFOLK3                      Population 1. January Number 2026-07-01T08:00:00
 4 BEFOLK1                      Population 1. January Number 2026-02-12T08:00:00
 5 BEFOLK2                      Population 1. January Number 2026-02-12T08:00:00
 6   FOLK3                      Population 1. January Number 2026-02-12T08:00:00
   firstPeriod latestPeriod active
 1      2008Q1       2026Q3   TRUE
-2     2021M10      2026M07   TRUE
+2     2021M10      2026M08   TRUE
 3        2008         2026   TRUE
 4        1971         2026   TRUE
 5        1901         2026   TRUE
