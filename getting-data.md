@@ -46,7 +46,7 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-09-29 04:13
+  Date: 2026-10-13 05:27
   Status: 200
   Content-Type: text/html; charset=utf-8
   Size: 11.7 kB
@@ -79,10 +79,10 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-09-29 04:13
+  Date: 2026-10-13 05:27
   Status: 200
   Content-Type: text/plain
-  Size: 73 B
+  Size: 71 B
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +99,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "Why did the sentence fail the driving test? It never came to a full stop."
+[1] "Did you hear about the cheese who saved the world? It was Legend-dairy!"
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +156,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-09-29 04:13
+  Date: 2026-10-13 05:27
   Status: 200
   Content-Type: application/json
-  Size: 94 B
-{"id":"cpWnWg3TKmb","joke":"Two silk worms had a race. They ended up in a tie...
+  Size: 105 B
+{"id":"0oO71TSv4Ed","joke":"Why was it called the dark ages? Because of all t...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +176,10 @@ content(result)
 
 ``` output
 $id
-[1] "cpWnWg3TKmb"
+[1] "0oO71TSv4Ed"
 
 $joke
-[1] "Two silk worms had a race. They ended up in a tie."
+[1] "Why was it called the dark ages? Because of all the knights. "
 
 $status
 [1] 200
@@ -245,18 +245,18 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[1]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[2]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[3]]
@@ -309,8 +309,8 @@ $previous_page
 
 $results
             id
-1  82wHlbaapzd
-2  YvkV8xXnjyd
+1  YvkV8xXnjyd
+2  82wHlbaapzd
 3  lyk3EIBQfxc
 4  DIeaUDlbUDd
 5  EBQfiyXD5ob
@@ -323,8 +323,8 @@ $results
 12 sPRnOfiyAAd
 13 Lmjqzsr49pb
                                                                                                                                                                                                                                                                          joke
-1  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
-2                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+1                                                                                                                                                                                         Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy.
+2  Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle.
 3                                                                                                                                                                                             I went to the zoo the other day, there was only one dog in it. It was a shitzu.
 4                                                                                                                                                                                                                          “My Dog has no nose.” “How does he smell?” “Awful”
 5                                                                                                                                                                                                          what do you call a dog that can do magic tricks? a labracadabrador
@@ -394,29 +394,29 @@ $previous_page
 
 $results
             id
-1   8UnrHe2T0g
-2     daaUfibh
-3  iGJeVKmWDlb
-4  AQn3wPKeqrc
-5  0wcFBQfiGBd
-6  TS0gFlqr4ob
-7  0DdaxAX0orc
-8  BQfaxsHBsrc
-9    39Etc2orc
-10 O7haxA5Tfxc
-11 1wkqrcNCljb
+1  iGJeVKmWDlb
+2   8UnrHe2T0g
+3     daaUfibh
+4    39Etc2orc
+5  BQfaxsHBsrc
+6  1wkqrcNCljb
+7  AQn3wPKeqrc
+8  O7haxA5Tfxc
+9  TS0gFlqr4ob
+10 0wcFBQfiGBd
+11 0DdaxAX0orc
                                                                                   joke
-1                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-2            Why was the big cat disqualified from the race? Because it was a cheetah.
-3                  My cat was just sick on the carpet, I don’t think it’s feline well.
-4            It was raining cats and dogs the other day. I almost stepped in a poodle.
-5             Did you hear the joke about the wandering nun? She was a roman catholic.
-6                      What do you call a group of disorganized cats? A cat-tastrophe.
-7                         I accidentally took my cats meds last night. Don’t ask meow.
-8                                        What do you call a pile of cats?  A Meowtain.
-9  Why did the man run around his bed? Because he was trying to catch up on his sleep!
-10                                        Where do cats write notes?\r\nScratch Paper!
-11         Did you know that protons have mass? I didn't even know they were catholic.
+1                  My cat was just sick on the carpet, I don’t think it’s feline well.
+2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+3            Why was the big cat disqualified from the race? Because it was a cheetah.
+4  Why did the man run around his bed? Because he was trying to catch up on his sleep!
+5                                        What do you call a pile of cats?  A Meowtain.
+6          Did you know that protons have mass? I didn't even know they were catholic.
+7            It was raining cats and dogs the other day. I almost stepped in a poodle.
+8                                         Where do cats write notes?\r\nScratch Paper!
+9                      What do you call a group of disorganized cats? A cat-tastrophe.
+10            Did you hear the joke about the wandering nun? She was a roman catholic.
+11                        I accidentally took my cats meds last night. Don’t ask meow.
 
 $search_term
 [1] "cat"
