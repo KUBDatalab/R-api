@@ -46,7 +46,7 @@ GET("https://icanhazdadjoke.com/")
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-10-13 05:27
+  Date: 2026-10-20 03:34
   Status: 200
   Content-Type: text/html; charset=utf-8
   Size: 11.7 kB
@@ -79,10 +79,12 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-10-13 05:27
+  Date: 2026-10-20 03:34
   Status: 200
   Content-Type: text/plain
-  Size: 71 B
+  Size: 86 B
+What is the difference between ignorance and apathy?
+
 ```
 
 We still get the response from the server, telling us that Status is 200, and everything is OK. But where is our dad-joke?
@@ -99,7 +101,7 @@ No encoding supplied: defaulting to UTF-8.
 ```
 
 ``` output
-[1] "Did you hear about the cheese who saved the world? It was Legend-dairy!"
+[1] "What is the difference between ignorance and apathy?\r\n\r\nI don't know and I don't care."
 ```
 
 There is a little warning about the encoding of the string. But now we have a dad-joke!
@@ -156,11 +158,11 @@ result
 
 ``` output
 Response [https://icanhazdadjoke.com/]
-  Date: 2026-10-13 05:27
+  Date: 2026-10-20 03:34
   Status: 200
   Content-Type: application/json
-  Size: 105 B
-{"id":"0oO71TSv4Ed","joke":"Why was it called the dark ages? Because of all t...
+  Size: 99 B
+{"id":"K6UKmykqrjb","joke":"What is a witch's favorite subject in school? Spe...
 ```
 
 Again - everything is nice and 200 = OK.
@@ -176,10 +178,10 @@ content(result)
 
 ``` output
 $id
-[1] "0oO71TSv4Ed"
+[1] "K6UKmykqrjb"
 
 $joke
-[1] "Why was it called the dark ages? Because of all the knights. "
+[1] "What is a witch's favorite subject in school? Spelling!"
 
 $status
 [1] 200
@@ -245,26 +247,26 @@ $previous_page
 $results
 $results[[1]]
 $results[[1]]$id
-[1] "YvkV8xXnjyd"
+[1] "82wHlbaapzd"
 
 $results[[1]]$joke
-[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
+[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
 
 
 $results[[2]]
 $results[[2]]$id
-[1] "82wHlbaapzd"
+[1] "YvkV8xXnjyd"
 
 $results[[2]]$joke
-[1] "Me: If humans lose the ability to hear high frequency volumes as they get older, can my 4 week old son hear a dog whistle?\r\n\r\nDoctor: No, humans can never hear that high of a frequency no matter what age they are.\r\n\r\nMe: Trick question... dogs can't whistle."
+[1] "Why did the cowboy have a weiner dog? Somebody told him to get a long little doggy."
 
 
 $results[[3]]
 $results[[3]]$id
-[1] "lyk3EIBQfxc"
+[1] "DIeaUDlbUDd"
 
 $results[[3]]$joke
-[1] "I went to the zoo the other day, there was only one dog in it. It was a shitzu."
+[1] "“My Dog has no nose.” “How does he smell?” “Awful”"
 
 
 
@@ -394,29 +396,29 @@ $previous_page
 
 $results
             id
-1  iGJeVKmWDlb
-2   8UnrHe2T0g
-3     daaUfibh
-4    39Etc2orc
-5  BQfaxsHBsrc
-6  1wkqrcNCljb
-7  AQn3wPKeqrc
-8  O7haxA5Tfxc
-9  TS0gFlqr4ob
-10 0wcFBQfiGBd
-11 0DdaxAX0orc
+1   8UnrHe2T0g
+2     daaUfibh
+3  iGJeVKmWDlb
+4  1wkqrcNCljb
+5  AQn3wPKeqrc
+6  O7haxA5Tfxc
+7  TS0gFlqr4ob
+8  0wcFBQfiGBd
+9  0DdaxAX0orc
+10   39Etc2orc
+11 BQfaxsHBsrc
                                                                                   joke
-1                  My cat was just sick on the carpet, I don’t think it’s feline well.
-2                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
-3            Why was the big cat disqualified from the race? Because it was a cheetah.
-4  Why did the man run around his bed? Because he was trying to catch up on his sleep!
-5                                        What do you call a pile of cats?  A Meowtain.
-6          Did you know that protons have mass? I didn't even know they were catholic.
-7            It was raining cats and dogs the other day. I almost stepped in a poodle.
-8                                         Where do cats write notes?\r\nScratch Paper!
-9                      What do you call a group of disorganized cats? A cat-tastrophe.
-10            Did you hear the joke about the wandering nun? She was a roman catholic.
-11                        I accidentally took my cats meds last night. Don’t ask meow.
+1                                 ‘Put the cat out’ … ‘I didn’t realize it was on fire
+2            Why was the big cat disqualified from the race? Because it was a cheetah.
+3                  My cat was just sick on the carpet, I don’t think it’s feline well.
+4          Did you know that protons have mass? I didn't even know they were catholic.
+5            It was raining cats and dogs the other day. I almost stepped in a poodle.
+6                                         Where do cats write notes?\r\nScratch Paper!
+7                      What do you call a group of disorganized cats? A cat-tastrophe.
+8             Did you hear the joke about the wandering nun? She was a roman catholic.
+9                         I accidentally took my cats meds last night. Don’t ask meow.
+10 Why did the man run around his bed? Because he was trying to catch up on his sleep!
+11                                       What do you call a pile of cats?  A Meowtain.
 
 $search_term
 [1] "cat"
